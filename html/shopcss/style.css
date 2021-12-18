@@ -36,14 +36,19 @@
     width: 90px;
 }
 
-.b-t-b-button {
-    background-color: #4682B4;
-    border: none;
+table,
+.tbstyle{
     border-radius: 10px;
-    color: white;
+}
+
+.b-t-b-button {
+    background-color: #cbeaff;
+    border: none;
+    border-radius: 5px;
+    color: rgb(74, 76, 100);
     padding: 5px 25px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: flexbox;
     font-size: 16px;
 }
