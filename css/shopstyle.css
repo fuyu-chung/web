@@ -1,0 +1,33 @@
+.blue-text {
+    font-size: 36px;
+    color: #4682B4;
+}
+
+.pink-text {
+    font-size: 36px;
+    color: #4927B3;
+}
+
+.brown-text {
+    color: #8B4513;
+    text-align: center;
+}
+
+.thick-black-border {
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+}
+
+.thick-border {
+    border-radius: 50%;
+}
+
+.smaller-image {
+    width: 80px;
+}
+
+.bigger-image {
+    width: 100px;
+}
