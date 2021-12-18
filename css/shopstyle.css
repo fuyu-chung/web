@@ -31,17 +31,3 @@
 .bigger-image {
     width: 100px;
 }
-
-section {
-    border: 1px solid blue;
-  }
-  
-  .left {
-    float: left;
-    background: pink;
-  }
-  
-  .right {
-    float: right;
-    background: cyan;
-  }
