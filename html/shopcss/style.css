@@ -32,10 +32,17 @@
     width: 100px;
 }
 
-.input-num-width{
+.input-num-width {
     width: 90px;
 }
 
-.b-t-b-button{
-    float: center;
+.b-t-b-button {
+    background-color: #4682B4;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
