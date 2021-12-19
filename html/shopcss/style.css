@@ -56,14 +56,22 @@ table,
 .blue-color {
     background-color: #cbeaff;
 }
-/*head flexbox*/
-.container-0{
-    display: flex;
-}
-.container-0 div{
-    border:0px rgb(255, 194, 194) solid;
-    padding: 10px;
 
+/*head flexbox 橫向; 按鈕 flexbox; 店家資訊 flexbox*/
+.container-0, .container-1, .container-info{
+    display: flex;
+    flex-direction: row;
+}
+/*店家資訊 flexbox*/
+/*飲料 different kinds of drinks (DKD)flexbox*/
+.container-DKD{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-0 div, .container-1 div, .container-info, .container-DKD div{
+    border:1px #ccc solid;
+    padding: 10px;
 }
 .box-h1{
     flex: 1;
@@ -75,22 +83,26 @@ table,
 }
 
 /*按鈕 flexbox*/
-.container-1{
-    display: flex;
-}
-
-.container-1 div{
-    border:1px #ccc solid;
-    padding: 10px;
-
-}
 .box-1{
     flex: 1;
 }
-.box-2{
+
+/*店家資訊 flexbox*/
+.box-info1{
     flex: 1;
 }
-.box-3{
+.box-info2{
+    flex: 2;
+}
+
+/*飲料 different kinds of drinks (DKD)flexbox*/
+.box-DKD1{
+    flex: 1;
+}
+.box-DKD2{
+    flex: 1;
+}
+.box-DKD3{
     flex: 1;
 }
 
