@@ -61,12 +61,15 @@ table,
 .container-0, .container-1, .container-info{
     display: flex;
     flex-direction: row;
+    border-radius:10px
 }
 /*店家資訊 flexbox*/
 /*飲料 different kinds of drinks (DKD)flexbox*/
 .container-DKD{
     display: flex;
     flex-direction: column;
+    border-radius:10px
+    
 }
 
 .container-0 div, .container-1 div, .container-info, .container-DKD div{
