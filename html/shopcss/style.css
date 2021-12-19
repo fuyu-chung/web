@@ -58,7 +58,7 @@ table,
 }
 
 /*head flexbox 橫向; 按鈕 flexbox; 店家資訊 flexbox*/
-.container-0, .container-1, .container-info{
+.container-0{
     display: flex;
     flex-direction: row;
     border-radius:10px;
@@ -73,16 +73,17 @@ table,
     flex-direction: row;
     border-radius:10px;
 }
-/*店家資訊 flexbox*/
 /*飲料 different kinds of drinks (DKD)flexbox*/
 .container-DKD{
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
     border-radius:10px;
     justify-content: space-between;
+    flex-wrap:nowrap;
+    align-content:space-between;
 }
 
-.container-0 div, .container-1 div, .container-info, .container-DKD div{
+.container-0 div, .container-1 div, .container-info div, .container-DKD div{
     border:0px #ccc solid;
     padding: 10px;
 }
@@ -114,15 +115,7 @@ table,
 }
 
 /*飲料 different kinds of drinks (DKD)flexbox*/
-.box-DKD1{
-    flex: 1;
-    border-radius:10px;
-}
-.box-DKD2{
-    flex: 1;
-    border-radius:10px;
-}
-.box-DKD3{
+.box-DKD{
     flex: 1;
     border-radius:10px;
 }
