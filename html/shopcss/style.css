@@ -23,7 +23,7 @@
 .text-info-shopinfo-down{
     font-size: 16px;
     color: #ffffff;
-    margin: 2px 0px 2px 0px;
+    margin: 3px 0px 3px 0px;
 }
 
 .thick-black-border {
@@ -43,6 +43,7 @@
 
 .smaller-info-image{
     width: 60px;
+    margin: 5px 5px 5px 5px;
 }
 
 .bigger-image {
