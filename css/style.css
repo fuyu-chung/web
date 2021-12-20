@@ -32,6 +32,12 @@
     border-style: solid;
     border-radius: 50%;
 }
+.thin-white-border {
+    border-color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+}
 
 .thick-border {
     border-radius: 50%;
@@ -42,7 +48,7 @@
 }
 
 .smaller-info-image{
-    width: 60px;
+    width: 75px;
     margin: 5px 5px 5px 5px;
 }
 
