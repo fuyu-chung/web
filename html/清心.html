@@ -8,95 +8,2789 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-	<style>
-		.blue-text {
-			font-size: 36px;
-			color: #4682B4;
-		}
-
-		.pink-text {
-			font-size: 36px;
-			color: #4927B3;
-		}
-
-		.brown-text {
-			color: #8B4513;
-			text-align: center;
-		}
-
-		.thick-black-border {
-			border-color: black;
-			border-width: 2px;
-			border-style: solid;
-			border-radius: 50%;
-		}
-
-		.thick-border {
-			border-radius: 50%;
-		}
-
-		.smaller-image {
-			width: 80px;
-		}
-
-		.bigger-image {
-			width: 100px;
-		}
-	</style>
-
+	<link rel="stylesheet" href="../css/style.css" type="text/css">
 
 
 </head>
 
 <body>
-	<img class="smaller-image thick-border" style="float:left;" src="https://i.imgur.com/dYjvCiM.png">
-	<h1 style="text-align:center" class="blue-text">DrinkGo!</h1>
-		<a href="about.html">
-			<button style="float:left; margin:80px 0px 10px -80px;" class="photoBtn">關於我們</button></a>
-		<a href="https://www.google.com.tw">
-			<button style="float:right; margin:80px 0px 10px 10px;" class="photoBtn">購物車</button></a>
-		<a href="https://www.google.com.tw">
-			<button style="float:right; margin:80px 10px 10px 10px;" class="photoBtn">優惠券</button></a>
-		<a href="https://www.google.com.tw">
-			<button style="float:right; margin:80px 10px 10px 10px;" class="photoBtn">登入</button></a>
+	<div id="header"><img class="smaller-image thick-border" style="float:left;" src="images/DrinkGo-01.png">
+		<h1 style="text-align:center" class="blue-text">DrinkGo!</h1>
+	</div>
 
 
-	<table border="1" width="100%" cellspacing="5" cellpadding="5">
-		<tr>
-			<th style="float:center">
-				<select name=“排序方式”>
-					<option name="距離" selected>依距離排序</option>
-					<option name=“區域”>依區域排序</option>
-					<option name=“類別”>依類別排序</option>
-				</select>
-			</th>
-		</tr>
-		<tr>
-			<td>
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/KuCbCzX.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/7z5p24R.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/eU1Xukc.png">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/3QqDj27.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/EoRxqc1.jpg"><br>
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/QGPCIRJ.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/JnwtxVv.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/FSX1VKD.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/3IEnJHc.png">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/sJONDVn.jpg">
-			</td>
-		</tr>
+	<a href="https://fuyu-chung.github.io/web/">
+		<button style="float:left; margin:80px 0px 10px -80px;" class="photoBtn">回到首頁</button></a>
+	<a href="https://www.google.com.tw">
+		<button style="float:right; margin:80px 0px 10px 10px;" class="photoBtn">購物車</button></a>
+	<a href="https://www.google.com.tw">
+		<button style="float:right; margin:80px 10px 10px 10px;" class="photoBtn">優惠券</button></a>
+	<a href="https://www.google.com.tw">
+		<button style="float:right; margin:80px 10px 10px 10px;" class="photoBtn">登入</button></a>
+	<br>
 
-	</table>
+
+
+	<div>
+		<div style="background-color: rgb(247, 232, 206);">
+			<h3 id="menu">以下是飲料菜單</h3>
+		</div>
+		<div class="container-DKD">
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>茗品系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>原鄉四季</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>特級綠茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>烏龍綠茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>翡翠烏龍</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>極品清茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>錫蘭紅茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>特選普洱</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>嚴選高山茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>特調系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>梅子綠茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>紅茶豆漿</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>情人茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>蜜茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>蜂蜜烏龍/綠茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>清心巧克力</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>濃情巧克力</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>咖啡奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>綠豆沙奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>芋香奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+
+
+
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>季節鮮果系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>檸檬汁</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>輕檸四季</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>檸檬綠茶/紅茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>蜂蜜檸檬</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>金桔檸檬</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>桔茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>葡萄柚汁</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>葡萄柚綠茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>抹茶系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>和風抹茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<span>翡翠抹茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>抹茶拿鐵</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<br>
+			<br>
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>抹茶系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>和風抹茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<span>翡翠抹茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>抹茶拿鐵</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>鮮奶/拿鐵系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>鮮奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>鮮奶冬瓜</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>鮮奶豆漿</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>咖啡拿鐵</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>清心巧克力拿鐵</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>濃情巧克力拿鐵</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>奶茶系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>錫蘭奶紅</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>特級奶綠</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>烏龍奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>珍珠奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>粉圓奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>仙草凍奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>布丁奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>椰果奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>蜂蜜奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>冰淇淋系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>冰淇淋紅茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<span>冰淇淋抹茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>冰淇淋奶茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>冬瓜系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>冬瓜茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<span>冬瓜青茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>冬瓜檸檬</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
+				<div>
+					<table border="1" width="100%" cellspacing="5" cellpadding="5">
+						<caption>
+							<div style="text-align: center;">
+								<h3>優多系列</h3>
+							</div>
+						</caption>
+						<thead>
+							<tr>
+								<th>飲料名稱</th>
+								<th>甜度</th>
+								<th>冰塊or熱飲</th>
+								<th>大小</th>
+								<th>杯數<br>
+									<small>(上限: 100杯)/次</small>
+								</th>
+								<th>加入購物車</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<span>優多綠茶</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<span>優多檸檬</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span>優多葡萄柚</span>
+								</td>
+								<td>
+									<span>
+										<select name="sugar">
+											<option value="standard">正常</option>
+											<option value="half sugar">半糖</option>
+											<option value="low sugar">微糖</option>
+											<option value="no sugar">無糖</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="ice">
+											<option value="normal">正常冰</option>
+											<option value="low ice">微冰</option>
+											<option value="no ice">去冰</option>
+											<option value="hot">熱飲</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<select name="size">
+											<option value="large">大杯</option>
+											<option value="medium">中杯</option>
+										</select>
+									</span>
+								</td>
+								<td>
+									<span>
+										<input type="number" name="number" min="0" max="100" class="input-num-width"
+											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+									</span>
+								</td>
+								<td>
+									<button class="photoBtn">新增</button>
+								</td>
+							</tr>
+						</tbody>
+
+						<tfoot style="background-color: rgb(236, 249, 255);">
+							<tr>
+								<td colspan="6">
+									<div>
+										<a href="#menu">
+											<button style="float:lleft; margin:0px 0px 0px 300px;"
+												class="photoBtn">回到分類</button>
+										</a>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+			<br>
+			<!--以下繼續-->
+
+		</div>
+	</div>
+
 </body>
 
 </html>
