@@ -5,7 +5,7 @@
 	<title>Milksha X DrinkGo</title>
 	<!--<link rel="icon" href="../images/DrinkGo-01.png" type="image/x-icon">-->
 	<link rel="icon" href="../images/DrinkGo-01.ico" type="image/x-icon">
-	
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
@@ -165,7 +165,23 @@
 									</span>
 								</td>
 								<td>
-									<button class="photoBtn">新增</button>
+									<button data-drinkM-target="#drinkM" class="photoBtn">新增</button>
+									<div class="drinkM active" id="drinkM">
+										<div class="drinkM-header">
+											<div class="title">
+												KUMO紅茶
+											</div>
+											<button data-close-button class="close-button">&times;</button>
+
+										</div>
+										<div class="drinkM-body">
+											Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut ut sed atque?
+											Aliquid consequuntur nam, sunt ratione blanditiis soluta inventore repellat
+											aut quo in obcaecati accusantium culpa molestiae! Labore, sit.
+
+										</div>
+									</div>
+									<div id="overlay"></div>
 								</td>
 							</tr>
 							<tr>
