@@ -82,7 +82,7 @@ table,
 }
 
 /*ul li 相關class*/
-ul li{
+ul{
     list-style-type: none;
 }
 
@@ -178,3 +178,6 @@ ul li{
     text-align: center;
     line-height: 80px;
 }
+
+
+

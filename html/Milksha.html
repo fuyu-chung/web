@@ -7,14 +7,14 @@
 	<link rel="icon" href="../images/DrinkGo-01.ico" type="image/x-icon">
 
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="../css/style.css" type="text/css">
-	<link rel="stylesheet" href="../css/jsRelate.css" type="text/css">
-	<script defer src="drinkMenu.js"></script>
+	<link rel="stylesheet" href="../css/jsRelate.css">
+	<script defer src="../js/drinkMenu.js"></script>
 	<link href='https://css.gg/time.css' rel='stylesheet'>
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
 		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -165,20 +165,24 @@
 									</span>
 								</td>
 								<td>
-									<button data-drinkM-target="#drinkM" class="photoBtn">新增</button>
-									<div class="drinkM active" id="drinkM">
-										<div class="drinkM-header">
-											<div class="title">
-												KUMO紅茶
-											</div>
+									<button data-drinkm-target="#drinkm">訂購</button>
+									<div class="drinkm" id="drinkm" style="border: 1px solid black;">
+										<div class="drinkm-header" style="border-bottom: 1px solid black;">
+											<div class="title">KUMO 紅茶</div>
 											<button data-close-button class="close-button">&times;</button>
-
 										</div>
-										<div class="drinkM-body">
-											Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut ut sed atque?
-											Aliquid consequuntur nam, sunt ratione blanditiis soluta inventore repellat
-											aut quo in obcaecati accusantium culpa molestiae! Labore, sit.
-
+										<div class="drinkm-body">
+											Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias ut
+											illo doloremque eum ipsum obcaecati
+											distinctio debitis reiciendis quae quia soluta totam doloribus quos nesciunt
+											necessitatibus, consectetur quisquam
+											accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae rem at
+											ad autem dolor ex aperiam. Amet
+											assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur sint
+											officiis perferendis atque! Voluptatem
+											maxime eius eum dolorem dolor exercitationem quis iusto totam! Repudiandae
+											nobis nesciunt sequi iure! Eligendi,
+											eius libero. Ex, repellat sapiente!
 										</div>
 									</div>
 									<div id="overlay"></div>
@@ -356,7 +360,7 @@
 
 						<tfoot style="background-color: rgb(236, 249, 255);">
 							<tr>
-								<td colspan="7">
+								<td colspan="6">
 									<div>
 										<a href="#menu">
 											<button style="float:none; margin:0px 0px 0px 300px;"
