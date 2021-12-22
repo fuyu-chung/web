@@ -1,8 +1,8 @@
-*, *::after, *::before{
-    box-sizing: border-box;;
-}
-
-.drinkM{
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  .drinkm {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -11,44 +11,44 @@
     border: 1px solid black;
     border-radius: 10px;
     z-index: 10;
-    background-color: blanchedalmond;
+    background-color: white;
     width: 500px;
     max-width: 80%;
+  }
 
-}
 
-.drinkM.active{
+  
+  .drinkm.active {
     transform: translate(-50%, -50%) scale(1);
-}
-
-.drinkM-header{
+  }
+  
+  .drinkm-header {
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px;
-
-}
-.drinkM-header .title{
+    border-bottom: 1px solid black;
+  }
+  
+  .drinkm-header .title {
     font-size: 1.25rem;
     font-weight: bold;
-}
-.drinkM-header .close-button{
+  }
+  
+  .drinkm-header .close-button {
     cursor: pointer;
     border: none;
     outline: none;
     background: none;
     font-size: 1.25rem;
     font-weight: bold;
-
-}
-.drinkM-body{
-    /*scroll-padding:;*/
+  }
+  
+  .drinkm-body {
     padding: 10px 15px;
-
-}
-
-#overlay{
+  }
+  
+  #overlay {
     position: fixed;
     opacity: 0;
     transition: 200ms ease-in-out;
@@ -56,11 +56,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(red, green, blue, alpha);
+    background-color:  rgba(0, 0, 0, .5);
     pointer-events: none;
-}
-
-#overlay.active{
+  }
+  
+  #overlay.active {
     opacity: 1;
     pointer-events: all;
-}
+  }
