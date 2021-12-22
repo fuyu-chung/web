@@ -97,10 +97,15 @@ ul{
     flex-direction: row;
     border-radius:10px;
 }
+
+/*資訊照片欄位*/
 .container-info{
     display: flex;
     flex-direction: row;
     border-radius:10px;
+    align-items: stretch;
+    justify-content: space-around;
+    background-color: #cbeaff;
 }
 /*info 中的 shop info container*/
 .container-info-shopinfo{
@@ -128,6 +133,7 @@ ul{
 .container-0 div, .container-1 div, .container-info div, .container-DKD div{
     border:0px #ccc solid;
     padding: 10px;
+    justify-content: space-between;
 }
 .box-h1{
     flex: 1;
@@ -150,18 +156,24 @@ ul{
 .box-info1{
     flex: 3;
     border-radius:10px;
+    align-self: stretch;
 }
 .box-info2{
     flex: 4;
     border-radius:10px;
+    align-self: stretch;
 }
 .box-info-shopinfo1{
     flex: 1;
     border-radius:10px;
+    align-self: stretch;
+    padding: 5px;
 }
 .box-info-shopinfo2{
     flex: 5;
     border-radius:10px;
+    align-self: stretch;
+    padding: 5px;
 }
 
 /*飲料 different kinds of drinks (DKD)flexbox*/
@@ -178,6 +190,8 @@ ul{
     text-align: center;
     line-height: 80px;
 }
+
+
 
 
 
