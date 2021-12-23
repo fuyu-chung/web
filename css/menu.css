@@ -1,0 +1,9 @@
+.container-each-menu {
+    /*display: flex;*/
+    /*width: 1000px;*/
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-content: space-between;
+}
