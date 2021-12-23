@@ -22,14 +22,27 @@ body {
 }
 
 .item_header div {
+    width: 200px;
     color: #888;
     line-height: 30px;
+}
+
+.item_header .item_detail {
+    width: 50%;
 }
 
 .item_body {
     margin-top: 20px;
     height: 100px;
     align-items: center;
+}
+
+.item_detail img {
+    width: 80px;
+    height: 80px;
+    border-radius: 3px;
+    /* margin-top: 10px; */
+    float: left;
 }
 
 .item_detail .name {
