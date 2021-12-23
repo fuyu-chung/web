@@ -38,14 +38,6 @@ body {
     align-items: center;
 }
 
-.item_detail img {
-    width: 80px;
-    height: 80px;
-    border-radius: 3px;
-    /* margin-top: 10px; */
-    float: left;
-}
-
 .item_detail .name {
     margin-left: 100px;
     margin-top: 20px;
