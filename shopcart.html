@@ -2,101 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="js/cart.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .tab {
-            width: 500px;
-            border-collapse: collapse;
-            margin: 0 auto;
-        }
-        
-        .tab td,
-        th {
-            border: 1px solid #000;
-        }
-        
-        .tab .num {
-            width: 20px;
-        }
-        
-        .tab .add,
-        .sub {
-            width: 20px;
-        }
-        
-        .current {
-            background-color: pink;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="css/cart.css" type="text/css">
+
 </head>
 
 <body>
-    <table class="tab">
-        <thead>
-            <th>全選 <input type="checkbox" name="" value="" class="checkAll">
-                <input type="checkbox" name="" value="" class="checkAll">
-            </th>
-            <th>商品名稱</th>
-            <th>單價</th>
-            <th>數量</th>
-            <th>總計</th>
-            <th>操作</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input type="checkbox" class="ed" /></td>
-                <td>cc </td>
-                <td class="price">￥100</td>
-                <td>
-                    <button type="button" class="sub">-</button>
-                    <input type="text" name="" value="1" class="num">
-                    <button type="button" class="add">+</button>
-                </td>
-                <td class="small_total">￥100</td>
-                <td class="delete">刪除</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" class="ed" /></td>
-                <td>aa </td>
-                <td class="price">￥100</td>
-                <td>
-                    <button type="button" class="sub">-</button>
-                    <input type="text" name="" value="1" class="num">
-                    <button type="button" class="add">+</button>
-                </td>
-                <td class="small_total">￥100</td>
-                <td class="delete">刪除</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" class="ed" /></td>
-                <td> bb</td>
-                <td class="price">￥100</td>
-                <td>
-                    <button type="button" class="sub">-</button>
-                    <input type="text" name="" value="1" class="num">
-                    <button type="button" class="add">+</button>
-                </td>
-                <td class="small_total">￥100</td>
-                <td class="delete">刪除</td>
-            </tr>
-        </tbody>
-    </table>
-    <div>
-        <span>已選<span style="color: red;" class="num_sum">1</span>件商品</span>
-        <span>總計:</span>
-        <span class="sum" style="color: red;">0</span>
-        <div><span style="color: red;" class="delSome">刪除選中商品</span>
-            <span style="color: red;" class="delAll">清空購物車</span>
+    <div id="app">
+        <div class="container">
+            <div class="item_header">
+                <div class="item_detail">商品</div>
+                <div class="price">單價</div>
+                <div class="count">數量</div>
+                <div class="amount">總計</div>
+                <div class="operate"></div>
+            </div>
+            <div class="item_container" v-for="(item, index) in itemList" :key="item.id">
+                <div class="item_header item_body">
+                    <div class="item_detail">
+                        <img v-bind:src="item.imgUrl" alt="">
+                        <div class="name">{{item.itemName}}</div>
+                    </div>
+
+                    <div class="price"><span>$</span>{{item.price}}</div>
+                    <div class="count">
+                        <button @click="handleSub(item)">-</button> {{item.count}}
+                        <button @click="handlePlus(item)">+</button>
+                    </div>
+                    <div class="amount">{{item.price * item.count}}</div>
+
+
+                    <div class="operate">
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <label for="fname" style="color: white;">地址:</label>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="lname" style="color: white;">電話:</label>
+            <input type="text" id="lname" name="lname"><br><br>
         </div>
     </div>
+    <br><br>
+
+
+
 </body>
+<script src="cart.js"></script>
 
 </html>
