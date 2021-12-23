@@ -14,13 +14,14 @@
     text-align: center;
 }
 
-.text-info-shopinfo-top{
+.text-info-shopinfo-top {
     font-size: 18px;
     color: #ffffff;
     font-weight: bolder;
     margin: 10px 0px 10px 0px;
 }
-.text-info-shopinfo-down{
+
+.text-info-shopinfo-down {
     font-size: 12px;
     color: #ffffff;
     margin: 3px 0px 3px 0px;
@@ -32,6 +33,7 @@
     border-style: solid;
     border-radius: 50%;
 }
+
 .thin-white-border {
     border-color: rgb(255, 255, 255);
     border-width: 1px;
@@ -47,13 +49,19 @@
     width: 80px;
 }
 
-.smaller-info-image{
+.smaller-info-image {
     width: 75px;
     /*margin: 5px 5px 5px 5px;*/
 }
 
 .bigger-image {
     width: 100px;
+}
+
+.drop-shadow {
+    -webkit-filter: drop-shadow(0px 0px 12px rgba(66, 66, 66, 0.7));
+    filter: drop-shadow(0px 0px 12px rgba(66, 66, 66, 0.7))
+    /*drop-shadow(offset-x offset-y spread-radius color)*/
 }
 
 .input-num-width {
@@ -82,104 +90,112 @@ table,
 }
 
 /*ul li 相關class*/
-ul{
+ul {
     list-style-type: none;
 }
 
 /*head flexbox 橫向; 按鈕 flexbox; 店家資訊 flexbox*/
-.container-0{
+.container-0 {
     display: flex;
     flex-direction: row;
-    border-radius:10px;
+    border-radius: 10px;
 }
-.container-1{
+
+.container-1 {
     display: flex;
     flex-direction: row;
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 /*資訊照片欄位*/
-.container-info{
+.container-info {
     display: flex;
     flex-direction: row;
-    border-radius:10px;
+    border-radius: 10px;
     align-items: stretch;
     justify-content: space-around;
     background-color: #cbeaff;
 }
+
 /*info 中的 shop info container*/
-.container-info-shopinfo{
+.container-info-shopinfo {
     display: flex;
     flex-direction: row;
-    border-radius:10px;
+    border-radius: 10px;
     justify-content: space-around;
 }
-.container-info-shopinfo div{
-    border:1px #ccc solid;
+
+.container-info-shopinfo div {
+    border: 1px #ccc solid;
     padding: 10px;
 }
 
 /*飲料 different kinds of drinks (DKD)flexbox*/
-.container-DKD{
+.container-DKD {
     /*display: flex;*/
     /*width: 1000px;*/
     flex-direction: column;
-    border-radius:10px;
+    border-radius: 10px;
     justify-content: space-between;
-    flex-wrap:nowrap;
-    align-content:space-between;
+    flex-wrap: nowrap;
+    align-content: space-between;
 }
 
-.container-0 div, .container-1 div, .container-info div, .container-DKD div{
-    border:0px #ccc solid;
+.container-0 div, .container-1 div, .container-info div, .container-DKD div {
+    border: 0px #ccc solid;
     padding: 10px;
     justify-content: space-between;
 }
-.box-h1{
+
+.box-h1 {
     flex: 1;
     order: 1;
-    border-radius:10px;
+    border-radius: 10px;
 }
-.box-h2{
+
+.box-h2 {
     flex: 9;
     order: 2;
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 /*按鈕 flexbox*/
-.box-1{
+.box-1 {
     flex: 1;
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 /*店家資訊 flexbox*/
-.box-info1{
+.box-info1 {
     flex: 3;
-    border-radius:10px;
+    border-radius: 10px;
     align-self: stretch;
 }
-.box-info2{
+
+.box-info2 {
     flex: 4;
-    border-radius:10px;
+    border-radius: 10px;
     align-self: stretch;
 }
-.box-info-shopinfo1{
+
+.box-info-shopinfo1 {
     flex: 1;
-    border-radius:10px;
+    border-radius: 10px;
     align-self: stretch;
     padding: 5px;
 }
-.box-info-shopinfo2{
+
+.box-info-shopinfo2 {
     flex: 5;
-    border-radius:10px;
+    border-radius: 10px;
     align-self: stretch;
     padding: 5px;
 }
 
 /*飲料 different kinds of drinks (DKD)flexbox*/
-.box-DKD{
+.box-DKD {
     flex: 1;
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 
@@ -190,8 +206,3 @@ ul{
     text-align: center;
     line-height: 80px;
 }
-
-
-
-
-
