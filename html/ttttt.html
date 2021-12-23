@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang=“zh”>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="css/homepagestyle.css" type="text/css">
+    <!--連結到 "css/homepagestyle.css" 檔案-->
+    <style>
+        .maindiv {
+            width: 70%;
+            width: 400px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.accupass.com%2Fevent%2F1904040732382874352840&psig=AOvVaw36U8W3wvbPLJW9yUtg-hT7&ust=1640277423815000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPD04t3r9_QCFQAAAAAdAAAAABAD');
+            background-size: 100% 100%;
+            box-shadow: 1px 2px 10px 5px white;
+            animation: slider 9s infinite linear;
+
+        }
+
+        @keyframes slider {
+            0% {
+                background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.accupass.com%2Fevent%2F1904040732382874352840&psig=AOvVaw36U8W3wvbPLJW9yUtg-hT7&ust=1640277423815000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPD04t3r9_QCFQAAAAAdAAAAABAD');
+            }
+
+            35% {
+                background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.accupass.com%2Fuserupload%2Fceb0b262fcb3482f831bd6401d2a04b4.jpg&imgrefurl=https%3A%2F%2Fwww.accupass.com%2Fevent%2F1904040732382874352840&tbnid=zsYUZP95MkIWmM&vet=12ahUKEwjhs9ra6_f0AhUjQPUHHeYPCR4QMygBegUIARCuAQ..i&docid=Uw-y7gcGaD6P2M&w=1976&h=2000&itg=1&q=%E7%97%98%E7%97%98%E9%87%8D&ved=2ahUKEwjhs9ra6_f0AhUjQPUHHeYPCR4QMygBegUIARCuAQ');
+            }
+
+            75% {
+                background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fp2.bahamut.com.tw%2FB%2FACG%2Fc%2F47%2F0000075347.JPG&imgrefurl=https%3A%2F%2Facg.gamer.com.tw%2FacgDetail.php%3Fs%3D75347&tbnid=UMxR_mVQuAHdYM&vet=12ahUKEwi6v-Dr7_f0AhUTB5QKHVzUBewQMygHegUIARC7AQ..i&docid=7Sddvt67sZzevM&w=239&h=166&itg=1&q=%E7%97%98%E7%97%98%E9%87%8D&hl=zh-TW&ved=2ahUKEwi6v-Dr7_f0AhUTB5QKHVzUBewQMygHegUIARC7AQ');
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <img class="smaller-image thick-border" style="float:left;" src="images/DrinkGo-01.png">
+    <h1 style="text-align:center" class="blue-text">DrinkGo!</h1>
+    <a href="about.html">
+        <button style="float:left; margin:80px 0px 10px -80px;" class="photoBtn">關於我們</button></a>
+    <a href="https://www.google.com.tw">
+        <button style="float:right; margin:80px 0px 10px 10px;" class="photoBtn">購物車</button></a>
+    <a href="https://www.google.com.tw">
+        <button style="float:right; margin:80px 10px 10px 10px;" class="photoBtn">優惠券</button></a>
+    <a href="https://www.google.com.tw">
+        <button style="float:right; margin:80px 10px 10px 10px;" class="photoBtn">登入</button></a>
+    <div class="maindiv">
+
+    </div>
+
+
+    <table border="1" width="100%" cellspacing="5" cellpadding="5">
+        <tr>
+            <th style="float:center">
+                <select name=“排序方式”>
+                    <option name="距離" selected>依距離排序</option>
+                    <option name=“區域”>依區域排序</option>
+                    <option name=“類別”>依類別排序</option>
+                </select>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <a href="html/TeaTank.html">
+                    <img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
+                        src="images/TeaTank.jpg"></a>
+                <a href="html/Milksha.html"><img class="bigger-image thick-black-border"
+                        style="float:center; margin:10px 24px;" src="images/Milksha.jpg"></a>
+                <a href="html/果汁霸.html">
+                    <img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
+                        src="images/果汁霸.png"></a>
+                <a href="html/truedan.html">
+                    <img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
+                        src="images/珍煮丹.jpg"></a>
+                <a href="html/Kebuke.html">
+                    <img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
+                        src="images/Kebuke.jpg"></a><br>
+                <a href="html/清心.html">
+                    <img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
+                        src="images/清心.jpg"></a>
+                <a href="html/Comebuy.html">
+                    <img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
+                        src="images/Comebuy.jpg"></a>
+                <a href="html/50嵐.html">
+                    <img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
+                        src="images/50嵐.jpg"></a>
+                <a href="html/StarB.html">
+                    <img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
+                        src="images/StarB.png"></a>
+                <a href="html/Louisa.html">
+                    <img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
+                        src="images/Louisa.png"></a>
+            </td>
+        </tr>
+
+    </table>
+</body>
+
+</html>
