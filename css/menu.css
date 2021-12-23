@@ -1,9 +1,159 @@
-.container-each-menu {
-    /*display: flex;*/
-    /*width: 1000px;*/
-    flex-direction: column;
+.container-all-menu h3 {
+    text-align: center;
+    background-color: #FFF8DD;
     border-radius: 10px;
+    margin: 10px 0px 10px;
+}
+
+.container-all-menu table{
+    border: 0px;
+    border-collapse: collapse;
+}
+
+.container-all-menu th, td{
+    border: 0px;
+    padding: 5px;
+}
+
+
+
+
+
+.container-all-menu ul {
+    list-style-type: none;
+    padding: 0px 0px 0px 2px;
+}
+
+.container-all-menu li {
+    margin: 10px 0px 10px 0px;
+}
+
+
+
+.container-menu-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    flex-wrap: nowrap;
-    align-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
+    border-radius: 10px;
+    /*background-color: #cbeaff;*/
+}
+
+.container-all-menu {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
+    border-radius: 10px;
+    /*background-color: #cbeaff;*/
+}
+
+
+/*
+.container-all-menu div{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: stretch;
+    border-radius: 10px;
+    background-color: #cbeaff;
+}
+*/
+.box-block-1 {
+    order: 0;
+    flex: auto;
+    align-self: stretch;
+    border-radius: 10px;
+    /*background-color: #5e5e5e;*/
+    padding: 10px;
+    width: 50%;
+    margin: 0px;
+}
+
+.box-block-2 {
+    order: 0;
+    flex: auto;
+    align-self: stretch;
+    border-radius: 10px;
+    /*background-color: #5e5e5e;*/
+    width: 50%;
+    padding: 10px;
+    margin: 0px;
+}
+
+
+
+.box-all-menu-1 {
+    order: 0;
+    flex: auto;
+    align-self: stretch;
+    border-radius: 10px;
+    background-color: #b0ccbb;
+    float: left;
+    padding: 10px;
+}
+
+.box-all-menu-2 {
+    order: 0;
+    flex: auto;
+    align-self: stretch;
+    border-radius: 10px;
+    background-color: #b0ccbb;
+    float: left;
+    padding: 10px;
+}
+
+.box-all-menu-3 {
+    order: 0;
+    flex: auto;
+    align-self: stretch;
+    border-radius: 10px;
+    background-color: #b0ccbb;
+    float: left;
+    padding: 10px;
+}
+
+.box-all-menu-4 {
+    order: 0;
+    flex: auto;
+    align-self: stretch;
+    border-radius: 10px;
+    background-color: #b0ccbb;
+    float: right;
+    padding: 10px;
+}
+
+.box-all-menu-5 {
+    order: 0;
+    flex: auto;
+    align-self: stretch;
+    border-radius: 10px;
+    background-color: #b0ccbb;
+    float: right;
+    padding: 10px;
+}
+
+.box-all-menu-6 {
+    order: 0;
+    flex: auto;
+    align-self: stretch;
+    border-radius: 10px;
+    background-color: #b0ccbb;
+    float: right;
+    padding: 10px;
+}
+
+/*飲料名稱button*/
+.button-drink:hover {
+    color: #FFF8DD;
+}
+
+.button-drink:active {
+    text-shadow: 2px 2px 8px #FFF8DD;
 }

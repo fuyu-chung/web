@@ -92,6 +92,11 @@ table,
 /*ul li 相關class*/
 ul {
     list-style-type: none;
+    
+}
+
+.box-info-shopinfo2 ul{
+    padding: 0px 0px 0px 2px;
 }
 
 /*head flexbox 橫向; 按鈕 flexbox; 店家資訊 flexbox*/
@@ -122,7 +127,7 @@ ul {
     display: flex;
     flex-direction: row;
     border-radius: 10px;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .container-info-shopinfo div {
