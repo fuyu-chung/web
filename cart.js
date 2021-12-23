@@ -3,32 +3,12 @@ var app = new Vue({
     data: {
         itemList: [{
                 id: '1',
-                itemName: '',
-                price: '',
+                itemName: '1111',
+                price: '50',
                 count: '0'
             },
 
-            {
-                id: '',
-                itemName: "",
-                imgUrl: "",
-                price: '',
-                count: '0'
-            },
-            {
-                id: '',
-                itemName: "",
-                imgUrl: "",
-                price: '',
-                count: '0'
-            },
-            {
-                id: '',
-                itemName: "",
-                imgUrl: "",
-                price: '',
-                count: '0'
-            },
+
         ]
     },
     methods: {
