@@ -5,12 +5,12 @@
     margin: 10px 0px 10px;
 }
 
-.container-all-menu table{
+.container-all-menu table {
     border: 0px;
     border-collapse: collapse;
 }
 
-.container-all-menu th, td{
+.container-all-menu th, td {
     border: 0px;
     padding: 5px;
 }
@@ -149,6 +149,8 @@
     padding: 10px;
 }
 
+/*.box-popwin-1 {}*/
+
 /*飲料名稱button*/
 .button-drink:hover {
     color: #FFF8DD;
@@ -156,4 +158,8 @@
 
 .button-drink:active {
     text-shadow: 2px 2px 8px #FFF8DD;
+}
+
+h6 {
+    margin: 12px 0px 12px;
 }
