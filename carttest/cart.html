@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang=“zh”>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../carttest/cart1.css" type="text/css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Cart X DrinkGo</title>
+    <link rel="icon" href="images/DrinkGo.ico" type="image/x-icon">
+    <script defer src="../carttest/cart1.js"></script>
+
+
+    <meta name="description" content="This is the description">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://checkout.stripe.com/checkout.js" defer></script>
+    <script>
+        var stripePublicKey = '<%= stripePublicKey %>'
+    </script>
+    <script src="store.js" defer></script>
+
+</head>
+
+<body>
+    <img alt="Logo" class="smaller-image thick-border" style="float:left;" src="image/DrinkGo.png">
+    <a href="index.php" style="text-decoration: none;">
+        <h1 style="text-align:center;" class="blue-text">DrinkGo!</h1>
+    </a>
+    <h3 style="text-align:right; height:10px;" id="hello_nickname"></h3>
+    <div style="margin-top:80px; margin-bottom:10px; overflow:hidden;">
+        <button onclick="location.href='about.php'" style="float: left" class="photoBtn">關於我們</button>
+        <button onclick="location.href='shopinfo.php'" style="float: left" class="photoBtn">關於店家</button>
+        <button onclick="location.href='cart.php'" style="float: right" class="photoBtn">購物車</button>
+        <button onclick="location.href='member.php'" style="float: right" class="photoBtn">會員專區</button>
+
+        <!--
+        <?php
+session_start();
+if (!isset($_SESSION["account"])) {
+echo "<button onclick=\"location.href='login.php'\" style=\"float: right\" class=\"photoBtn\">登入 / 註冊</button></div>";
+echo "<h2>尚未登入!</h2>";
+return;
+} else {
+include "resource/Account.php";
+$account = unserialize($_SESSION["account"]);
+$nickname = $account->get_nickname();
+echo "<script>document.getElementById(\"hello_nickname\").innerHTML = \"嗨! $nickname\"</script>";
+echo "<button onclick=\"location.href='logout.php'\" style=\"float: right\" class=\"photoBtn\">登出</button></div>";
+}
+?>
+-->
+
+
+        <section class="container content-section">
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">Album 1</span>
+                    <img class="shop-item-image" src="../images/StarB.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">50</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Album 2</span>
+                    <img class="shop-item-image" src="../images/StarB.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$14.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Album 3</span>
+                    <img class="shop-item-image" src="../images/StarB.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$9.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Album 4</span>
+                    <img class="shop-item-image" src="../images/StarB.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container content-section">
+            <h2 class="section-header">MERCH</h2>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">T-Shirt</span>
+                    <img class="shop-item-image" src="../images/StarB.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Coffee Cup</span>
+                    <img class="shop-item-image" src="../images/StarB.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$6.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
+        
+
+
+</body>
+
+</html>
