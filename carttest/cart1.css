@@ -147,8 +147,7 @@
     color: white;
     background-color: #56CCF2;
     border: none;
-    border-radius: .3em;
-    font-weight: bold;
+    border-radius: 10px;
 }
 
 .btn-primary:hover {
@@ -270,10 +269,10 @@
 
 .btn-danger {
     color: white;
-    background-color: #EB5757;
+    background-color: #e46c6c;
     border: none;
     border-radius: .3em;
-    font-weight: bold;
+    
 }
 
 .btn-danger:hover {
@@ -316,7 +315,7 @@
 
 .cart-total-price {
     color: #333;
-    font-size: 1.1em;
+    font-size: 20px;
 }
 
 .btn-purchase {
