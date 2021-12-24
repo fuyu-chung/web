@@ -2,2791 +2,804 @@
 <html lang=“zh”>
 
 <head>
-	<title>Milksha X DrinkGo</title>
-	<!--<link rel="icon" href="../images/DrinkGo-01.png" type="image/x-icon">-->
-	<link rel="icon" href="../images/DrinkGo-01.ico" type="image/x-icon">
+    <title>Milksha X DrinkGo</title>
+    <!--<link rel="icon" href="../images/DrinkGo-01.png" type="image/x-icon">-->
+    <link rel="icon" href="../image/DrinkGo-01.ico" type="image/x-icon">
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-	<link rel="stylesheet" href="../css/style.css" type="text/css">
-	<link rel="stylesheet" href="../css/jsRelate.css">
-	<link rel="stylesheet" href="../css/menu.css">
-	<script defer src="../js/drinkMenu.js"></script>
-	<link href='https://css.gg/time.css' rel='stylesheet'>
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/jsRelate.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <script defer src="../js/drinkMenu.js"></script>
+    <link href='https://css.gg/time.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 
 </head>
 
 <body>
-	<!-- drinkGo 的 container-->
-	<div class="container-0">
-		<div class="box-h1">
-			<img class="smaller-image thick-border" style="float:left;" src="../images/DrinkGo-01.png">
-		</div>
-		<div class="box-h2">
-			<h1 style="text-align:center; margin:0px 0px 0px -90px;" class="blue-text">DrinkGo!</h1>
-		</div>
+    <!-- drinkGo 的 container-->
+    <div class="container-0">
+        <div class="box-h1">
+            <img class="smaller-image thick-border" style="float:left;" src="../image/DrinkGo.png">
+        </div>
+        <div class="box-h2">
+            <h1 style="text-align:center; margin:0px 0px 0px -90px;" class="blue-text">DrinkGo!</h1>
+        </div>
+    </div>
+    <h3 style="text-align:right; height:10px;" id="hello_nickname"></h3>
+    <!-- button 的 container-->
+    <div class="container-1">
+        <div class="box-1">
 
-	</div>
+            <a href="../index.php">
+                <button style="float:left; margin:0px 0px 10px 0px;" class="photoBtn">回到首頁</button></a>
+            <a href="https://www.google.com.tw">
+                <button style="float:right; margin:0px 0px 10px 10px;" class="photoBtn">購物車</button></a>
+            <a href="../coupon.php">
+                <button style="float:right; margin:0px 10px 10px 10px;" class="photoBtn">優惠券</button></a>
+            <?php
+            session_start();
+            if (!isset($_SESSION["account"])) {
+                echo "<button onclick=\"location.href='../login.php'\" style=\"float: right\" class=\"photoBtn\">登入 / 註冊</button></div></div>";
+                echo "<h2>尚未登入!</h2>";
+                return;
+            } else {
+                include "../resource/Account.php";
+                $account = unserialize($_SESSION["account"]);
+                $nickname = $account->get_nickname();
+                echo "<script>document.getElementById(\"hello_nickname\").innerHTML = \"嗨! $nickname\"</script>";
+                echo "<button onclick=\"location.href='../logout.php'\" style=\"float: right\" class=\"photoBtn\">登出</button></div></div>";
+            }
+            ?>
 
-	<!-- button 的 container-->
-	<div class="container-1">
-		<div class="box-1">
+            <!-- 店家資訊 的 container-->
+            <div class="container-info">
+                <div class="box-info1">
+                    <div class="container-info-shopinfo" style="background-color: #606279;">
+                        <div class="box-info-shopinfo1">
+                            <img class="smaller-info-image thin-white-border" style="float:left;" src="../image/Milksha.jpg">
+                        </div>
+                        <div class="box-info-shopinfo2">
+                            <h4 class="text-info-shopinfo-top">迷客夏&nbsp;新北輔大店</h4>
+                            <ul>
+                                <li class="text-info-shopinfo-down">
+                                    <i class="fas fa-phone"></i>
+                                    02-2901&nbsp;7167
+                                </li>
+                                <li class="text-info-shopinfo-down">
+                                    <i class="fas fa-clock"></i>
+                                    10:00AM-10:30PM
+                                </li>
+                                <li class="text-info-shopinfo-down">
+                                    <i class="fas fa-compass"></i>
 
-			<a href="https://fuyu-chung.github.io/web/">
-				<button style="float:left; margin:0px 0px 10px 0px;" class="photoBtn">回到首頁</button></a>
-			<a href="https://www.google.com.tw">
-				<button style="float:right; margin:0px 0px 10px 10px;" class="photoBtn">購物車</button></a>
-			<a href="https://www.google.com.tw">
-				<button style="float:right; margin:0px 10px 10px 10px;" class="photoBtn">優惠券</button></a>
-			<a href="https://www.google.com.tw">
-				<button style="float:right; margin:0px 10px 10px 10px;" class="photoBtn">登入</button></a>
-			<br>
+                                    新北市新莊區中正路516-31號
+                                </li>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3615.0506242216316!2d121.432968!3d25.032356!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7e8949f2147%3A0x9e4b5a994dfbf3ec!2zMjQy5paw5YyX5biC5paw6I6K5Y2A5Lit5q2j6LevNTE2LTMx6Jmf!5e0!3m2!1szh-TW!2stw!4v1640017958168!5m2!1szh-TW!2stw" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-info2">
+                    <div class="container-info-shopinfo" style="background-color: #606279; padding: 0px 0px 0px 2px; align-self: stretch;">
+                        <div class="box-info-shopinfo1">
+                            <img style="float:center; border-radius: 10px;" src="../image/Happy new year!!.png" width="420" height="100">
+                        </div>
 
-		</div>
-	</div>
+                    </div>
+                </div>
+            </div>
 
-	<!-- 店家資訊 的 container-->
-	<div class="container-info">
-		<div class="box-info1">
-			<div class="container-info-shopinfo" style="background-color: #606279;">
-				<div class="box-info-shopinfo1">
-					<img class="smaller-info-image thin-white-border" style="float:left;" src="../images/Milksha.jpg">
-				</div>
-				<div class="box-info-shopinfo2">
-					<h4 class="text-info-shopinfo-top">迷客夏&nbsp;新北輔大店</h4>
-					<ul>
-						<li class="text-info-shopinfo-down">
-							<i class="fas fa-phone"></i>
-							02-2901&nbsp;7167
-						</li>
-						<li class="text-info-shopinfo-down">
-							<i class="fas fa-clock"></i>
-							10:00AM-10:30PM
-						</li>
-						<li class="text-info-shopinfo-down">
-							<i class="fas fa-compass"></i>
+            <br>
 
-							新北市新莊區中正路516-31號
-						</li>
-						<iframe
-							src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3615.0506242216316!2d121.432968!3d25.032356!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7e8949f2147%3A0x9e4b5a994dfbf3ec!2zMjQy5paw5YyX5biC5paw6I6K5Y2A5Lit5q2j6LevNTE2LTMx6Jmf!5e0!3m2!1szh-TW!2stw!4v1640017958168!5m2!1szh-TW!2stw"
-							width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="box-info2">
-			<div class="container-info-shopinfo"
-				style="background-color: #606279; padding: 0px 0px 0px 2px; align-self: stretch;">
-				<div class="box-info-shopinfo1">
-					<img style="float:center; border-radius: 10px;" src="../images/Happy new year!!.png" width="420"
-						height="100">
-				</div>
+            <div class="container-menu-block">
+                <div class="box-block-1">
+                    <div class="container-all-menu">
+                        <!--KUMO雲奶霜-->
+                        <div class="box-all-menu-1">
+                            <h3>KUMO雲奶霜</h3>
+                            <ul>
+                                <div>
+                                    <li data-drinkm-target="#drinkm">
+                                        <elemet class="button-drink">
+                                            <div style="float: left;" class="drink-name">
+                                                <i class="fas fa-snowflake"></i>KUMO紅茶
+                                            </div>
+                                            <div style="float: right;">
+                                                55L
+                                            </div>
+                                        </elemet>
+                                    </li>
+                                    <div class="drinkm" id="drinkm" style="border: 1px solid black;">
+                                        <div class="drinkm-header" style="border-bottom: 1px solid black;">
+                                            <div class="title">KUMO 紅茶</div>
+                                            <button data-close-button class="close-button">&times;</button>
+                                        </div>
+                                        <div class="drinkm-body">
+                                            <form>
+                                                <h4>大小</h4>
+                                                <input type="radio" name="size" value="mediumcup">中杯
+                                                <input type="radio" name="size" value="largecup">大杯
+                                                <br>
 
-			</div>
-		</div>
-	</div>
+                                                <h4>甜度</h4>
+                                                <input type="radio" name="sweet" value="no-s">無糖
+                                                <input type="radio" name="sweet" value="quater-s">微糖
+                                                <input type="radio" name="sweet" value="half-s">半糖
+                                                <input type="radio" name="sweet" value="less-s">少糖
+                                                <input type="radio" name="sweet" value="full-s">全糖
+                                                <br>
 
-	<br>
+                                                <h4>冰塊or熱飲</h4>
+                                                <input type="radio" name="ice" value="ice-free">去冰
+                                                <input type="radio" name="ice" value="ice-less">少冰
+                                                <input type="radio" name="ice" value="more-ice">正常冰
+                                                <input type="radio" name="ice" value="hot">熱飲
+                                                <br>
 
-	<div class="container-menu-block">
-		<div class="box-block-1">
-			<div class="container-all-menu">
-				<div class="box-all-menu-1">
-					<h3>KUMO雲奶霜</h3>
-					<table>
-						<tr>
-							<td>
-								<span>KUMO紅茶</span>
-							</td>
-							<td>
-								<span>55</span>
-							</td>
-							<td>
-								<span>55</span>
-							</td>
-							<td>
-								<span>訂購</span>
-							</td>
-						</tr>
-					</table>
-					
-					
-					
-					<ul>
-						<li data-drinkm-target="#drinkm">
-							<elemet class="button-drink">
-								<div style="float: left;">
-									<i class="fas fa-leaf"></i>KUMO紅茶
-								</div>
-								<div style="float: right;">
-									55
-								</div>
-							</elemet>
-							<div class="drinkm" id="drinkm" style="border: 1px solid black;">
-								<div class="drinkm-header" style="border-bottom: 1px solid black;">
-									<div class="title">KUMO 紅茶</div>
-									<button data-close-button class="close-button">&times;</button>
-								</div>
-								<div class="drinkm-body">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias
-									ut
-									illo doloremque eum ipsum obcaecati
-									distinctio debitis reiciendis quae quia soluta totam doloribus quos
-									nesciunt
-									necessitatibus, consectetur quisquam
-									accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae
-									rem at
-									ad autem dolor ex aperiam. Amet
-									assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur
-									sint
-									officiis perferendis atque! Voluptatem
-									maxime eius eum dolorem dolor exercitationem quis iusto totam!
-									Repudiandae
-									nobis nesciunt sequi iure! Eligendi,
-									eius libero. Ex, repellat sapiente!
+                                                <h4>杯數</h4>
+                                                <small>(上限: 100杯/次）</small>
+                                                <input type="number" name="number" min="0" max="100" class="input-num-width" value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+                                                <div>
+                                                <h4>加料</h6>
+                                                <small>(上限: 2種/次）</small>
 
-								</div>
-							</div>
-							<div id="overlay"></div>
-						</li>
-						<br>
-						<li data-drinkm-target="#drinkm">
-							<elemet class="button-drink">
-								<div style="float: left;">
-									<i class="fas fa-leaf"></i>KUMO決明大麥
-								</div>
-								<div style="float: right;">
-									55
-								</div>
-							</elemet>
-							<div class="drinkm" id="drinkm" style="border: 1px solid black;">
-								<div class="drinkm-header" style="border-bottom: 1px solid black;">
-									<div class="title">KUMO決明大麥</div>
-									<button data-close-button class="close-button">&times;</button>
-								</div>
-								<div class="drinkm-body">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias
-									ut
-									illo doloremque eum ipsum obcaecati
-									distinctio debitis reiciendis quae quia soluta totam doloribus quos
-									nesciunt
-									necessitatibus, consectetur quisquam
-									accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae
-									rem at
-									ad autem dolor ex aperiam. Amet
-									assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur
-									sint
-									officiis perferendis atque! Voluptatem
-									maxime eius eum dolorem dolor exercitationem quis iusto totam!
-									Repudiandae
-									nobis nesciunt sequi iure! Eligendi,
-									eius libero. Ex, repellat sapiente!
+                                                </div>
+                                               
+                                                <input type="checkbox" name="ingredient" value="ingredient-free">無
+                                                <input type="checkbox" name="ingredient" value="ingredient-less">珍珠
+                                                <input type="checkbox" name="ingredient" value="more-ingredient">仙草凍
+                                                <input type="checkbox" name="ingredient" value="hot">布丁
+                                                <input type="checkbox" name="ingredient" value="hot">芋圓
+                                                <input type="checkbox" name="ingredient" value="hot">紅豆
+                                               
 
-								</div>
-							</div>
-							<div id="overlay"></div>
-						</li>
+                                            </form>
+                                            <br>
+                                            <div class="foot" style="border-top: 1px solid black; text-align:center" >
+                                                <br>
+                                                <button >加入購物車</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="overlay"></div>
+                                </div>
+                                <br>
+                                <div>
+                                    <li data-drinkm-target="#drinkm">
+                                        <elemet class="button-drink">
+                                            <div style="float: left;" class="drink-name">
+                                                <i class="fas fa-snowflake"></i>KUMO決明大麥
+                                            </div>
+                                            <div style="float: right;">
+                                                55L
+                                            </div>
+                                        </elemet>
+                                    </li>
+                                </div>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>KUMO茉莉綠茶
+                                        </div>
+                                        <div style="float: right;">
+                                            55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>KUMO琥珀烏龍
+                                        </div>
+                                        <div style="float: right;">
+                                            55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>KUMO原片青茶
+                                        </div>
+                                        <div style="float: right;">
+                                            55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        <!--牧場鮮奶茶-->
+                        <div class="box-all-menu-2">
+                            <h3>牧場鮮奶茶</h3>
+                            <ul>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>布朗紅茶拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            55M&nbsp;65L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>伯爵可可拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            55M&nbsp;65L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>芝麻烏龍拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            65M&nbsp;75L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>娜杯紅茶拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            45M&nbsp;55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>伯爵紅茶拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            45M&nbsp;55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>大正紅茶拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            45M&nbsp;55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>焙香大麥拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            45M&nbsp;55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>琥珀烏龍拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            45M&nbsp;55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>茉香綠茶拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            45M&nbsp;55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>醇濃紅茶鮮豆奶
+                                        </div>
+                                        <div style="float: right;">
+                                            55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                            </ul>
+                        </div>
+                        <br>
+                        <!--愛茶的牛-->
+                        <div class="box-all-menu-3">
+                            <h3>愛茶的牛</h3>
+                            <ul>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>娜杯紅茶
+                                        </div>
+                                        <div style="float: right;">
+                                            30L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>英倫伯爵紅茶
+                                        </div>
+                                        <div style="float: right;">
+                                            35L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>大正醇香紅茶
+                                        </div>
+                                        <div style="float: right;">
+                                            30L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>焙香決明大麥
+                                        </div>
+                                        <div style="float: right;">
+                                            25L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>琥珀高峰烏龍
+                                        </div>
+                                        <div style="float: right;">
+                                            30L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>茉莉原淬綠茶
+                                        </div>
+                                        <div style="float: right;">
+                                            30L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>原片初露清茶
+                                        </div>
+                                        <div style="float: right;">
+                                            30L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>原鄉冬瓜茶
+                                        </div>
+                                        <div style="float: right;">
+                                            30L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>沉香烏龍
+                                        </div>
+                                        <div style="float: right;">
+                                            70L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>小山見晴
+                                        </div>
+                                        <div style="float: right;">
+                                            70L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>青採翠玉
+                                        </div>
+                                        <div style="float: right;">
+                                            70L
+                                        </div>
+                                    </elemet>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-					</ul>//
+                </div>
+                <div class="box-block-2">
+                    <div class="container-all-menu">
+                        <!--嚼對推薦-->
+                        <div class="box-all-menu-4">
+                            <h3>嚼對推薦</h3>
+                            <ul>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>珍珠伯爵紅茶拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            55M&nbsp;65L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>芋圓茉香綠茶拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            60M&nbsp;70L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>手感芋圓芋泥鮮奶
+                                        </div>
+                                        <div style="float: right;">
+                                            75M&nbsp;95L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>珍珠手炒黑糖鮮奶
+                                        </div>
+                                        <div style="float: right;">
+                                            70M&nbsp;90L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>雙Q琥珀烏龍拿鐵
+                                        </div>
+                                        <div style="float: right;">
+                                            80L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>仙草凍冬瓜茶
+                                        </div>
+                                        <div style="float: right;">
+                                            40L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                            </ul>
+                        </div>
+                        <br>
+                        <!--手作特調-->
+                        <div class="box-all-menu-5">
+                            <h3>手作特調</h3>
+                            <ul>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>冬瓜麥茶
+                                        </div>
+                                        <div style="float: right;">
+                                            35L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>冬瓜青茶
+                                        </div>
+                                        <div style="float: right;">
+                                            40L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>冬瓜檸檬
+                                        </div>
+                                        <div style="float: right;">
+                                            45L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>冰糖洛神梅
+                                        </div>
+                                        <div style="float: right;">
+                                            45L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>冰樣檸紅
+                                        </div>
+                                        <div style="float: right;">
+                                            35L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>白甘蔗青茶
+                                        </div>
+                                        <div style="float: right;">
+                                            60L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>冰淬檸檬
+                                        </div>
+                                        <div style="float: right;">
+                                            55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>冰淬柳丁
+                                        </div>
+                                        <div style="float: right;">
+                                            55L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>青寧香茶
+                                        </div>
+                                        <div style="float: right;">
+                                            60L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>香柚綠茶
+                                        </div>
+                                        <div style="float: right;">
+                                            50L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>養樂多綠
+                                        </div>
+                                        <div style="float: right;">
+                                            50L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-snowflake"></i>柳丁綠茶
+                                        </div>
+                                        <div style="float: right;">
+                                            60L
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                            </ul>
+                        </div>
+                        <br>
+                        <!--綠光牧場鮮奶-->
+                        <div class="box-all-menu-6">
+                            <h3>綠光牧場鮮奶</h3>
+                            <ul>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>手炒黑糖鮮奶
+                                        </div>
+                                        <div style="float: right;">
+                                            60M
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>嫩仙草凍奶
+                                        </div>
+                                        <div style="float: right;">
+                                            65M
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>手感芋圓鮮奶
+                                        </div>
+                                        <div style="float: right;">
+                                            70M
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>法芙娜純可可鮮奶
+                                        </div>
+                                        <div style="float: right;">
+                                            60M
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>出雲抹茶鮮奶
+                                        </div>
+                                        <div style="float: right;">
+                                            70M
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>珍珠鮮奶
+                                        </div>
+                                        <div style="float: right;">
+                                            65M
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>芋頭鮮奶
+                                        </div>
+                                        <div style="float: right;">
+                                            65M
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>綠光鮮奶家庭號
+                                        </div>
+                                        <div style="float: right;">
+                                            160
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <elemet class="button-drink">
+                                        <div style="float: left;" class="drink-name">
+                                            <i class="fas fa-leaf"></i>綠光鮮奶小資瓶
+                                        </div>
+                                        <div style="float: right;">
+                                            90
+                                        </div>
+                                    </elemet>
+                                </li>
+                                <br>
+                                <li data-drinkm-target="#drinkm">
+                                    <div>
+                                        <elemet class="button-drink">
+                                            <div style="float: left;" class="drink-name">
+                                                <i class="fas fa-leaf"></i>小迷無加糖豆漿
+                                            </div>
+                                            <div style="float: right;">
+                                                89
+                                            </div>
+                                        </elemet>
+                                    </div>
+                                </li>
+                                <br>
+                            </ul>
+                        </div>
+                    </div>
 
-
-				</div>
-				<br>
-				<div class="box-all-menu-2">
-					<h3>牧場鮮奶茶</h3>
-					<ul>
-
-					</ul>
-				</div>
-				<br>
-				<div class="box-all-menu-3">
-					<h3>愛茶的牛</h3>
-				</div>
-			</div>
-
-		</div>
-		<div class="box-block-2">
-			<div class="container-all-menu">
-				<div class="box-all-menu-4">
-					<h3>嚼對推薦</h3>
-				</div>
-				<br>
-				<div class="box-all-menu-5">
-					<h3>手作特調</h3>
-				</div>
-				<br>
-				<div class="box-all-menu-6">
-					<h3>綠光牧場鮮奶</h3>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-
-	<!-- 飲料分類 的 container-->
-	<div>
-		<div style="background-color: rgb(247, 232, 206);">
-			<h3 id="menu">以下是飲料菜單</h3>
-		</div>
-		<div class="container-DKD">
-			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
-				<div>
-					<table border="1" width="100%" cellspacing="5" cellpadding="5">
-						<caption>
-							<div style="text-align: center;">
-								<h3>KUMO雲奶霜</h3>
-							</div>
-						</caption>
-						<thead>
-							<tr>
-								<th>飲料名稱</th>
-								<th>甜度</th>
-								<th>冰塊or熱飲</th>
-								<th>大小</th>
-								<!--<th>加料</th>-->
-								<th>杯數<br>
-									<small>(上限: 100杯)/次</small>
-								</th>
-								<th>加入購物車</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<span>KUMO紅茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<!--<td>
-									<span>
-										<label><input type="checkbox" name="add" value="noneL">無</label>
-										<label><input type="checkbox" name="add" value="preal">珍珠</label>
-										<label><input type="checkbox" name="add" value="cmp">仙草凍</label><br>
-										<label><input type="checkbox" name="add" value="pudding">布丁</label>
-										<label><input type="checkbox" name="add" value="taro">芋圓</label>
-										<label><input type="checkbox" name="add" value="redb">紅豆</label>
-									</span>
-								</td>-->
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button data-drinkm-target="#drinkm">訂購</button>
-									<div class="drinkm" id="drinkm" style="border: 1px solid black;">
-										<div class="drinkm-header" style="border-bottom: 1px solid black;">
-											<div class="title">KUMO 紅茶</div>
-											<button data-close-button class="close-button">&times;</button>
-										</div>
-										<div class="drinkm-body">
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quod alias
-											ut
-											illo doloremque eum ipsum obcaecati
-											distinctio debitis reiciendis quae quia soluta totam doloribus quos
-											nesciunt
-											necessitatibus, consectetur quisquam
-											accusamus ex, dolorum, dicta vel? Nostrum voluptatem totam, molestiae
-											rem at
-											ad autem dolor ex aperiam. Amet
-											assumenda eos architecto, dolor placeat deserunt voluptatibus tenetur
-											sint
-											officiis perferendis atque! Voluptatem
-											maxime eius eum dolorem dolor exercitationem quis iusto totam!
-											Repudiandae
-											nobis nesciunt sequi iure! Eligendi,
-											eius libero. Ex, repellat sapiente!
-
-										</div>
-									</div>
-									<div id="overlay"></div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>KUMO決明大麥</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>KUMO茉莉綠茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>KUMO琥珀烏龍</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>KUMO原片青茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-						</tbody>
-
-						<tfoot style="background-color: rgb(236, 249, 255);">
-							<tr>
-								<td colspan="6">
-									<div>
-										<a href="#menu">
-											<button style="float:none; margin:0px 0px 0px 300px;"
-												class="photoBtn">回到分類</button>
-										</a>
-									</div>
-								</td>
-							</tr>
-						</tfoot>
-					</table>
-				</div>
-			</div>
-			<br>
-			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
-				<div>
-					<table border="1" width="100%" cellspacing="5" cellpadding="5">
-						<caption>
-							<div style="text-align: center;">
-								<h3>牧場鮮奶茶</h3>
-							</div>
-						</caption>
-						<thead>
-							<tr>
-								<th>飲料名稱</th>
-								<th>甜度</th>
-								<th>冰塊or熱飲</th>
-								<th>大小</th>
-								<th>杯數<br>
-									<small>(上限: 100杯)/次</small>
-								</th>
-								<th>加入購物車</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<span>布朗紅茶拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>伯爵可可拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>芝麻烏龍拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>娜杯紅茶拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>伯爵紅茶拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>大正紅茶拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>焙香大麥拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>琥珀烏龍拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>茉香綠茶拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>醇濃紅茶鮮豆奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-						</tbody>
-
-						<tfoot style="background-color: rgb(236, 249, 255);">
-							<tr>
-								<td colspan="6">
-									<div>
-										<a href="#menu">
-											<button style="float:none; margin:0px 0px 0px 300px;"
-												class="photoBtn">回到分類</button>
-										</a>
-									</div>
-								</td>
-							</tr>
-						</tfoot>
-
-
-
-					</table>
-				</div>
-			</div>
-			<br>
-			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
-				<div>
-					<table border="1" width="100%" cellspacing="5" cellpadding="5">
-						<caption>
-							<div style="text-align: center;">
-								<h3>嚼對推薦</h3>
-							</div>
-						</caption>
-						<thead>
-							<tr>
-								<th>飲料名稱</th>
-								<th>甜度</th>
-								<th>冰塊or熱飲</th>
-								<th>大小</th>
-								<th>杯數<br>
-									<small>(上限: 100杯)/次</small>
-								</th>
-								<th>加入購物車</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<span>珍珠伯爵紅茶拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>芋圓茉香綠茶拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>手感芋圓芋泥鮮奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>珍珠手炒黑糖鮮奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>雙Q琥珀烏龍拿鐵</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>仙草凍冬瓜茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-						</tbody>
-
-						<tfoot style="background-color: rgb(236, 249, 255);">
-							<tr>
-								<td colspan="6">
-									<div>
-										<a href="#menu">
-											<button style="float:none; margin:0px 0px 0px 300px;"
-												class="photoBtn">回到分類</button>
-										</a>
-									</div>
-								</td>
-							</tr>
-						</tfoot>
-
-
-
-					</table>
-				</div>
-			</div>
-			<br>
-			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
-				<div>
-					<table border="1" width="100%" cellspacing="5" cellpadding="5">
-						<caption>
-							<div style="text-align: center;">
-								<h3>愛茶的牛</h3>
-							</div>
-						</caption>
-						<thead>
-							<tr>
-								<th>飲料名稱</th>
-								<th>甜度</th>
-								<th>冰塊or熱飲</th>
-								<th>大小</th>
-								<th>杯數<br>
-									<small>(上限: 100杯)/次</small>
-								</th>
-								<th>加入購物車</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<span>娜杯紅茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>英倫伯爵紅茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>大正醇香紅茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>焙香決明大麥</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>琥珀高峰烏龍</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>茉莉原淬綠茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>原片初露清茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>原鄉冬瓜茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>沉香烏龍</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>小山見晴</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>青採翠玉</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-						</tbody>
-
-						<tfoot style="background-color: rgb(236, 249, 255);">
-							<tr>
-								<td colspan="6">
-									<div>
-										<a href="#menu">
-											<button style="float:none; margin:0px 0px 0px 300px;"
-												class="photoBtn">回到分類</button>
-										</a>
-									</div>
-								</td>
-							</tr>
-						</tfoot>
-					</table>
-				</div>
-			</div>
-			<br>
-			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
-				<div>
-					<table border="1" width="100%" cellspacing="5" cellpadding="5">
-						<caption>
-							<div style="text-align: center;">
-								<h3>手做特調</h3>
-							</div>
-						</caption>
-						<thead>
-							<tr>
-								<th>飲料名稱</th>
-								<th>甜度</th>
-								<th>冰塊or熱飲</th>
-								<th>大小</th>
-								<th>杯數<br>
-									<small>(上限: 100杯)/次</small>
-								</th>
-								<th>加入購物車</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<span>冬瓜麥茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>冬瓜青茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>冬瓜檸檬</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>冰糖洛神梅</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>冰樣檸紅/檸綠</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>白甘蔗青茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>冰脆檸檬</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>冰脆柳丁</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>青寧香茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>香柚綠茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>養樂多綠</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>柳丁綠茶/青茶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-						</tbody>
-
-						<tfoot style="background-color: rgb(236, 249, 255);">
-							<tr>
-								<td colspan="6">
-									<div>
-										<a href="#menu">
-											<button style="float:none; margin:0px 0px 0px 300px;"
-												class="photoBtn">回到分類</button>
-										</a>
-									</div>
-								</td>
-							</tr>
-						</tfoot>
-					</table>
-				</div>
-			</div>
-			<br>
-			<div class="box-DKD" style="background-color: rgb(247, 232, 206);">
-				<div>
-					<table border="1" width="100%" cellspacing="5" cellpadding="5">
-						<caption>
-							<div style="text-align: center;">
-								<h3>綠光牧場鮮奶</h3>
-							</div>
-						</caption>
-						<thead>
-							<tr>
-								<th>飲料名稱</th>
-								<th>甜度</th>
-								<th>冰塊or熱飲</th>
-								<th>大小</th>
-								<th>杯數<br>
-									<small>(上限: 100杯)/次</small>
-								</th>
-								<th>加入購物車</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<span>手炒黑糖鮮奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>嫩仙草凍奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>手感芋圓鮮奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>法芙娜純可可鮮奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>出雲抹茶鮮奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>珍珠鮮奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>芋頭鮮奶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>綠光鮮奶家庭號</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>綠光鮮奶小資瓶</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<span>小迷無加糖豆漿</span>
-								</td>
-								<td>
-									<span>
-										<select name="sugar">
-											<option value="standard">正常</option>
-											<option value="half sugar">半糖</option>
-											<option value="low sugar">微糖</option>
-											<option value="no sugar">無糖</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="ice">
-											<option value="normal">正常冰</option>
-											<option value="low ice">微冰</option>
-											<option value="no ice">去冰</option>
-											<option value="hot">熱飲</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<select name="size">
-											<option value="large">大杯</option>
-											<option value="medium">中杯</option>
-										</select>
-									</span>
-								</td>
-								<td>
-									<span>
-										<input type="number" name="number" min="0" max="100" class="input-num-width"
-											value="0" placeholder="請輸入數字" pattern="[0-9]*" />
-									</span>
-								</td>
-								<td>
-									<button class="photoBtn">新增</button>
-								</td>
-							</tr>
-						</tbody>
-
-						<tfoot style="background-color: rgb(236, 249, 255);">
-							<tr>
-								<td colspan="6">
-									<div>
-										<a href="#menu">
-											<button style="float:none; margin:0px 0px 0px 300px;"
-												class="photoBtn">回到分類</button>
-										</a>
-									</div>
-								</td>
-							</tr>
-						</tfoot>
-					</table>
-				</div>
-			</div>
-			<br>
-			<!--以下繼續-->
-
-		</div>
-	</div>
+                </div>
+            </div>
 
 </body>
 

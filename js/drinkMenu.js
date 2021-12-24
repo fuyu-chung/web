@@ -4,6 +4,7 @@ const overlay = document.getElementById('overlay')
 
 openDrinkmButtons.forEach(button => {
   button.addEventListener('click', () => {
+    document.querySelector("#drinkm > div.drinkm-header > div").innerHTML = button.querySelector('div.drink-name').innerText
     const drinkm = document.querySelector(button.dataset.drinkmTarget)
     openDrinkm(drinkm)
   })
