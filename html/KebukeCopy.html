@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang=“zh”>
+
+<head>
+    <title>Kebuke X DrinkGo</title>
+    <link rel="icon" href="../image/DrinkGo.ico" type="image/x-icon">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="../css/jsRelate.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <script defer src="../js/drinkMenu.js"></script>
+    <link href='https://css.gg/time.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="icon" href="images/DrinkGo.ico" type="image/x-icon">
+</head>
+
+<body>
+    <img alt="Logo" class="smaller-image thick-border" style="float:left;" src="../image/DrinkGo.png">
+    <a href="../index.php" style="text-decoration: none;">
+        <h1 style="text-align:center;" class="blue-text">DrinkGo!</h1>
+    </a>
+    <h3 style="text-align:right; height:10px;" id="hello_nickname"></h3>
+    <div style="margin-top:80px; margin-bottom:10px; overflow:hidden;">
+        <button onclick="location.href='../about.php'" style="float: left" class="photoBtn">關於我們</button>
+        <button onclick="location.href='../shopinfo.php'" style="float: left" class="photoBtn">關於店家</button>
+        <button onclick="location.href='../cart.php'" style="float: right" class="photoBtn">購物車</button>
+        <button onclick="location.href='../member.php'" style="float: right" class="photoBtn">會員專區</button>
+        <!--
+        <?php
+        session_start();
+        if (!isset($_SESSION["account"])) {
+            echo "<button onclick=\"location.href='../login.php'\" style=\"float: right\" class=\"photoBtn\">登入 / 註冊</button></div>";
+            echo "<h2>尚未登入!</h2>";
+            return;
+        } else {
+            include "../resource/Account.php";
+            $account = unserialize($_SESSION["account"]);
+            $nickname = $account->get_nickname();
+            echo "<script>document.getElementById(\"hello_nickname\").innerHTML = \"嗨! $nickname\"</script>";
+            echo "<button onclick=\"location.href='../logout.php'\" style=\"float: right\" class=\"photoBtn\">登出</button></div>";
+        }
+        ?>
+-->
+    </div>
+    <!-- 店家資訊 的 container-->
+    <div class="container-info">
+        <div class="box-info1">
+            <div class="container-info-shopinfo" style="background-color: #606279;">
+                <div class="box-info-shopinfo1">
+                    <img class="smaller-info-image thin-white-border" style="float:left;" src="../image/Kebuke.jpg">
+                </div>
+                <div class="box-info-shopinfo2">
+                    <h4 class="text-info-shopinfo-top">可不可&nbsp;新莊輔大店</h4>
+                    <ul>
+                        <li class="text-info-shopinfo-down">
+                            <i class="fas fa-phone"></i>
+                            02-2902&nbsp;5852
+                        </li>
+                        <li class="text-info-shopinfo-down">
+                            <i class="fas fa-clock"></i>
+                            10:00AM-09:30PM
+                        </li>
+                        <li class="text-info-shopinfo-down">
+                            <i class="fas fa-compass"></i>
+
+                            新北市新莊區建國一路22號
+                        </li>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3615.072339520742!2d121.433594!3d25.031619!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7e8a36c5ec3%3A0x4debc52196a2231!2zMjQy5paw5YyX5biC5paw6I6K5Y2A5bu65ZyL5LiA6LevMjLomZ8!5e0!3m2!1szh-TW!2stw!4v1640367916232!5m2!1szh-TW!2stw"
+                            width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="box-info2">
+            <div class="container-info-shopinfo"
+                style="background-color: #606279; padding: 0px 0px 0px 2px; align-self: stretch;">
+                <div class="box-info-shopinfo1">
+                    <img style="float:center; border-radius: 10px;" src="../image/Happy new year!!.png" width="420"
+                        height="100">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container-menu-block">
+        <div class="box-block-1">
+            <div class="container-all-menu">
+
+                <div class="box-all-menu-1">
+                    <h3>精選茶類</h3>
+                    <ul>
+                        <div>
+                            <li data-drinkm-target="#drinkm">
+                                <elemet class="button-drink">
+                                    <div style="float: left;" class="drink-name">
+                                        <i class="fas fa-leaf"></i>熟成紅茶
+                                    </div>
+                                    <div style="float: right;">
+                                        30M&nbsp;35L
+                                    </div>
+                                </elemet>
+                            </li>
+                            <div class="drinkm" id="drinkm" style="border: 1px solid black;">
+                                <div class="drinkm-header" style="border-bottom: 1px solid black;">
+                                    <div class="title">熟成紅茶</div>
+                                    <button data-close-button class="close-button">&times;</button>
+                                </div>
+                                <div class="drinkm-body">
+                                    <form>
+                                        <h4>大小</h4>
+                                        <input type="radio" name="size" value="mediumcup">中杯
+                                        <input type="radio" name="size" value="largecup">大杯
+                                        <br>
+
+                                        <h4>甜度</h4>
+                                        <input type="radio" name="sweet" value="no-s">無糖
+                                        <input type="radio" name="sweet" value="one-s">一分糖
+                                        <input type="radio" name="sweet" value="bi-s">二分糖
+                                        <input type="radio" name="sweet" value="quater-s">微糖
+                                        <input type="radio" name="sweet" value="half-s">半糖
+                                        <input type="radio" name="sweet" value="less-s">少糖
+                                        <input type="radio" name="sweet" value="full-s">正常糖
+                                        <br>
+
+                                        <h4>冰塊or熱飲</h4>
+                                        <input type="radio" name="ice" value="allice-free">完全去冰
+                                        <input type="radio" name="ice" value="ice-free">去冰
+                                        <input type="radio" name="ice" value="ice-low">微冰
+                                        <input type="radio" name="ice" value="ice-less">少冰
+                                        <input type="radio" name="ice" value="more-ice">正常冰
+                                        <input type="radio" name="ice" value="room-temp">常溫
+                                        <input type="radio" name="ice" value="warm">溫
+                                        <input type="radio" name="ice" value="hot">熱飲
+                                        <br>
+
+                                        <h4>杯數</h4>
+                                        <small>(上限: 100杯/次）</small>
+                                        <input type="number" name="number" min="0" max="100" class="input-num-width"
+                                            value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+                                        <div>
+                                            <h4>加料</h6>
+                                                <small>(上限: 2種/次）</small>
+
+                                        </div>
+
+                                        <input type="checkbox" name="ingredient" value="ingredient-free">無
+                                        <input type="checkbox" name="ingredient" value="ingredient-few">白玉
+                                        <input type="checkbox" name="ingredient" value="ingredient-little">水玉
+                                        <input type="checkbox" name="ingredient" value="ingredient-low">百箱蒟蒻凍
+
+
+                                    </form>
+                                    <br>
+                                    <div class="foot" style="border-top: 1px solid black; text-align:center">
+                                        <br>
+                                        <button>加入購物車</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="overlay"></div>
+                        </div>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>麗春紅茶
+                                </div>
+                                <div style="float: right;">
+                                    30M&nbsp;35L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>太妃紅茶
+                                </div>
+                                <div style="float: right;">
+                                    35M&nbsp;40L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>胭脂紅茶
+                                </div>
+                                <div style="float: right;">
+                                    40M&nbsp;45L
+                                </div>
+                            </elemet>
+                        </li><br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>雪藏紅茶
+                                </div>
+                                <div style="float: right;">
+                                    50M&nbsp;60L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>熟成冷露
+                                </div>
+                                <div style="float: right;">
+                                    30M&nbsp;35L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>雪花冷露
+                                </div>
+                                <div style="float: right;">
+                                    30M&nbsp;35L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>春芽冷露
+                                </div>
+                                <div style="float: right;">
+                                    30M&nbsp;35L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>春芽綠茶
+                                </div>
+                                <div style="float: right;">
+                                    30M&nbsp;35L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>春梅冰茶
+                                </div>
+                                <div style="float: right;">
+                                    40M&nbsp;50L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>冷露歐蕾
+                                </div>
+                                <div style="float: right;">
+                                    45M&nbsp;55L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>熟成歐蕾
+                                </div>
+                                <div style="float: right;">
+                                    45M&nbsp;55L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>白玉歐蕾
+                                </div>
+                                <div style="float: right;">
+                                    55M&nbsp;65L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>熟成檸果
+                                </div>
+                                <div style="float: right;">
+                                    55M
+                                </div>
+                            </elemet>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <div class="box-all-menu-1">
+                    <h3>期間限定</h3>
+                    <ul>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>紅寶歐酪
+                                </div>
+                                <div style="float: right;">
+                                    75M&nbsp;85L
+                                </div>
+                            </elemet>
+                        </li>
+                        <br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>紅寶歐蕾
+                                </div>
+                                <div style="float: right;">
+                                    70M
+                                </div>
+                            </elemet>
+                        </li><br>
+                        <li data-drinkm-target="#drinkm">
+                            <elemet class="button-drink">
+                                <div style="float: left;" class="drink-name">
+                                    <i class="fas fa-leaf"></i>胭脂多多
+                                </div>
+                                <div style="float: right;">
+                                    45M&nbsp;55L
+                                </div>
+                            </elemet>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

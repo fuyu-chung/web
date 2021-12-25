@@ -2,101 +2,1590 @@
 <html lang=“zh”>
 
 <head>
+	<title>果汁霸&nbsp;X&nbsp;DrinkGo</title>
+	<link rel="icon" href="../image/DrinkGo-01.ico" type="image/x-icon">
+
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-	<style>
-		.blue-text {
-			font-size: 36px;
-			color: #4682B4;
-		}
-
-		.pink-text {
-			font-size: 36px;
-			color: #4927B3;
-		}
-
-		.brown-text {
-			color: #8B4513;
-			text-align: center;
-		}
-
-		.thick-black-border {
-			border-color: black;
-			border-width: 2px;
-			border-style: solid;
-			border-radius: 50%;
-		}
-
-		.thick-border {
-			border-radius: 50%;
-		}
-
-		.smaller-image {
-			width: 80px;
-		}
-
-		.bigger-image {
-			width: 100px;
-		}
-	</style>
-
-
-
+	<link rel="stylesheet" href="../css/style.css" type="text/css">
+	<link rel="stylesheet" href="../css/jsRelate.css">
+	<link rel="stylesheet" href="../css/menu.css">
+	<script defer src="../js/drinkMenu.js"></script>
+	<link href='https://css.gg/time.css' rel='stylesheet'>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="icon" href="images/DrinkGo.ico" type="image/x-icon">
 </head>
 
 <body>
-	<img class="smaller-image thick-border" style="float:left;" src="https://i.imgur.com/dYjvCiM.png">
-	<h1 style="text-align:center" class="blue-text">DrinkGo!</h1>
-		<a href="about.html">
-			<button style="float:left; margin:80px 0px 10px -80px;" class="photoBtn">關於我們</button></a>
-		<a href="https://www.google.com.tw">
-			<button style="float:right; margin:80px 0px 10px 10px;" class="photoBtn">購物車</button></a>
-		<a href="https://www.google.com.tw">
-			<button style="float:right; margin:80px 10px 10px 10px;" class="photoBtn">優惠券</button></a>
-		<a href="https://www.google.com.tw">
-			<button style="float:right; margin:80px 10px 10px 10px;" class="photoBtn">登入</button></a>
+	<img alt="Logo" class="smaller-image thick-border" style="float:left;" src="../image/DrinkGo.png">
+	<a href="../index.php" style="text-decoration: none;">
+		<h1 style="text-align:center;" class="blue-text">DrinkGo!</h1>
+	</a>
+	<h3 style="text-align:right; height:10px;" id="hello_nickname"></h3>
+	<div style="margin-top:80px; margin-bottom:10px; overflow:hidden;">
+		<button onclick="location.href='../about.php'" style="float: left" class="photoBtn">關於我們</button>
+		<button onclick="location.href='../shopinfo.php'" style="float: left" class="photoBtn">關於店家</button>
+		<button onclick="location.href='../cart.php'" style="float: right" class="photoBtn">購物車</button>
+		<button onclick="location.href='../member.php'" style="float: right" class="photoBtn">會員專區</button>
 
+		<?php
+        session_start();
+        if (!isset($_SESSION["account"])) {
+            echo "<button onclick=\"location.href='../login.php'\" style=\"float: right\" class=\"photoBtn\">登入 / 註冊</button></div>";
+            echo "<h2>尚未登入!</h2>";
+            return;
+        } else {
+            include "../resource/Account.php";
+            $account = unserialize($_SESSION["account"]);
+            $nickname = $account->get_nickname();
+            echo "<script>document.getElementById(\"hello_nickname\").innerHTML = \"嗨! $nickname\"</script>";
+            echo "<button onclick=\"location.href='../logout.php'\" style=\"float: right\" class=\"photoBtn\">登出</button></div>";
+        }
+        ?>
 
-	<table border="1" width="100%" cellspacing="5" cellpadding="5">
-		<tr>
-			<th style="float:center">
-				<select name=“排序方式”>
-					<option name="距離" selected>依距離排序</option>
-					<option name=“區域”>依區域排序</option>
-					<option name=“類別”>依類別排序</option>
-				</select>
-			</th>
-		</tr>
-		<tr>
-			<td>
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/KuCbCzX.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/7z5p24R.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/eU1Xukc.png">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/3QqDj27.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/EoRxqc1.jpg"><br>
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/QGPCIRJ.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/JnwtxVv.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/FSX1VKD.jpg">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/3IEnJHc.png">
-				<img class="bigger-image thick-black-border" style="float:center; margin:10px 24px;"
-					src="https://i.imgur.com/sJONDVn.jpg">
-			</td>
-		</tr>
+		<!-- 店家資訊 的 container-->
+		<div class="container-info">
+			<div class="box-info1">
+				<div class="container-info-shopinfo" style="background-color: #606279;">
+					<div class="box-info-shopinfo1">
+						<img class="smaller-info-image thin-white-border" style="float:left;" src="../image/果汁霸.png">
+					</div>
+					<div class="box-info-shopinfo2">
+						<h4 class="text-info-shopinfo-top">果之霸</h4>
+						<ul>
+							<li class="text-info-shopinfo-down">
+								<i class="fas fa-phone"></i>
+								0968-935-900
+							</li>
+							<li class="text-info-shopinfo-down">
+								<i class="fas fa-clock"></i>
+								11:00AM-09:00PM
+							</li>
+							<li class="text-info-shopinfo-down">
+								<i class="fas fa-compass"></i>
 
-	</table>
+								新北市新莊區中正路514巷15號
+							</li>
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.035895075236!2d121.43071841500627!3d25.03285588397287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7e88c460f47%3A0x998909979237e5c2!2z5p6c5LmL6Zy4!5e0!3m2!1szh-TW!2stw!4v1640419257722!5m2!1szh-TW!2stw"
+								width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="box-info2">
+				<div class="container-info-shopinfo"
+					style="background-color: #606279; padding: 0px 0px 0px 2px; align-self: stretch;">
+					<div class="box-info-shopinfo1">
+						<img style="float:center; border-radius: 10px;" src="../image/Happy new year!!.png" width="420"
+							height="100">
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<br>
+
+		<div class="container-menu-block">
+			<div class="box-block-1">
+				<div class="container-all-menu">
+					<!--鳳梨-->
+					<div class="box-all-menu-1" style="background-color: rgb(219, 203, 152);">
+						<h3>鳳梨</h3>
+						<ul>
+							<div>
+								<li data-drinkm-target="#drinkm">
+									<elemet class="button-drink">
+										<div style="float: left;" class="drink-name">
+											<i class="fas fa-snowflake"></i>鳳梨原汁
+										</div>
+										<div style="float: right;">
+											35L
+										</div>
+									</elemet>
+								</li>
+								<div class="drinkm" id="drinkm" style="border: 1px solid black;">
+									<div class="drinkm-header" style="border-bottom: 1px solid black;">
+										<div class="title">鳳梨蘋</div>
+										<button data-close-button class="close-button">&times;</button>
+									</div>
+									<div class="drinkm-body">
+										<form>
+											<h4>大小</h4>
+											<input type="radio" name="size" value="largecup">大杯
+											<br>
+
+											<h4>甜度</h4>
+											<input type="radio" name="sweet" value="no-s">無糖
+											<input type="radio" name="sweet" value="quater-s">微糖
+											<input type="radio" name="sweet" value="half-s">半糖
+											<input type="radio" name="sweet" value="less-s">少糖
+											<input type="radio" name="sweet" value="full-s">全糖
+											<br>
+
+											<h4>冰塊or熱飲</h4>
+											<input type="radio" name="ice" value="ice-free">去冰
+											<input type="radio" name="ice" value="ice-less">少冰
+											<input type="radio" name="ice" value="more-ice">正常冰
+
+											<br>
+
+											<h4>杯數</h4>
+											<small>(上限: 100杯/次）</small>
+											<input type="number" name="number" min="0" max="100" class="input-num-width"
+												value="0" placeholder="請輸入數字" pattern="[0-9]*" />
+											<div>
+												<h4>加料</h6>
+													<small>(上限: 1種/次）</small>
+
+											</div>
+
+											<input type="radio" name="ingredient" value="ingredient-free">無
+
+										</form>
+										<br>
+										<div class="foot" style="border-top: 1px solid black; text-align:center">
+											<br>
+											<button>加入購物車</button>
+										</div>
+									</div>
+								</div>
+								<div id="overlay"></div>
+							</div>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>鳳梨牛奶
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>鳳梨豆奶
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>鳳梨多多
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>鳳梨檸檬
+									</div>
+									<div style="float: right;">
+										40L
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					<!--蘋果-->
+					<div class="box-all-menu-2" style="background-color: rgb(211, 152, 152);">
+						<h3>蘋果</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>蘋果原汁
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>蘋果牛奶
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>蘋果豆奶
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>蘋果多多
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>蘋果鳳梨
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>蘋果檸檬
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					<!--奇異果-->
+					<div class="box-all-menu-2" style="background-color: rgb(180, 211, 152);">
+						<h3>奇異果</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果汁
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果牛奶
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果多多
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果香蕉
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果鳳梨
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果蘋果
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果芭樂
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果檸檬
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果葡萄
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>奇異果火龍果
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					<!--木瓜-->
+					<div class="box-all-menu-2" style="background-color: rgb(211, 180, 152);">
+						<h3>木瓜</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>木瓜原汁
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>木瓜牛奶
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>木瓜豆奶
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>木瓜多多
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>木瓜蘋果奶
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>木瓜香蕉奶
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					<!--檸檬-->
+					<div class="box-all-menu-2" style="background-color: rgb(210, 211, 152);">
+						<h3>檸檬</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>檸檬汁
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>檸檬梅子
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>檸檬多多
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>蜂蜜檸檬
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>金桔檸檬
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					<!--西瓜香蕉龍鳳哈密瓜芒果-->
+					<div class="box-all-menu-2">
+						<h3>西瓜香蕉龍鳳哈密瓜芒果</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>西瓜原汁
+									</div>
+									<div style="float: right;">
+										35M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>西瓜牛奶
+									</div>
+									<div style="float: right;">
+										35M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>西瓜多多
+									</div>
+									<div style="float: right;">
+										35M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>西瓜鳳梨
+									</div>
+									<div style="float: right;">
+										40M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>西瓜檸檬
+									</div>
+									<div style="float: right;">
+										40M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>西瓜哈密瓜
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>香蕉牛奶
+									</div>
+									<div style="float: right;">
+										40M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>香蕉多多
+									</div>
+									<div style="float: right;">
+										40M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>香蕉鳳梨奶
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>香蕉蘋果奶
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>香蕉芭樂奶
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>龍鳳汁
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>龍鳳奶
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>龍鳳多多
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>哈密瓜汁
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>哈密瓜奶
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>哈密瓜多多
+									</div>
+									<div style="float: right;">
+										45M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>哈密瓜蘋果
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>哈密瓜香蕉奶
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>哈密瓜奇異果
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>芒果汁
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>芒果牛奶
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>芒果多多
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>芒果蘋果
+									</div>
+									<div style="float: right;">
+										55M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>芒果芭樂
+									</div>
+									<div style="float: right;">
+										55M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>芒果檸檬
+									</div>
+									<div style="float: right;">
+										55M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>芒果香蕉奶
+									</div>
+									<div style="float: right;">
+										55M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>芒果哈密瓜
+									</div>
+									<div style="float: right;">
+										55M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>芒果奇異果
+									</div>
+									<div style="float: right;">
+										55M
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					<!--芭樂橘子葡萄柳丁草莓-->
+					<div class="box-all-menu-3">
+						<h3>芭樂橘子葡萄柳丁草莓</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭樂原汁
+									</div>
+									<div style="float: right;">
+										40L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭樂牛奶
+									</div>
+									<div style="float: right;">
+										40L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭樂多多
+									</div>
+									<div style="float: right;">
+										40L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭樂蘋果
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭樂香蕉
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭樂番茄
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭樂鳳梨
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭蘋多多
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭鳳多多
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭蕃多多
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>芭樂番茄奶
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>金桔多多
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>橘子汁
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>橘子多多
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>橘子檸檬
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>葡萄汁
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>葡萄牛奶
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>葡萄多多
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>葡萄檸檬
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>柳丁原汁
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>柳丁橘子
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>柳丁蘋果
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>柳丁芭樂
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>柳丁鳳梨
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>草莓汁
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>草莓牛奶
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>草莓多多
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>草莓鳳梨
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>草莓蘋果
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>草莓香蕉奶
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-fa-snowflake"></i>草莓奇異果
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					<!--其他綜合-->
+					<div class="box-all-menu-4">
+						<h3>其他綜合</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>招牌四合一
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>招牌三合一
+									</div>
+									<div style="float: right;">
+										50M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>酪梨布丁牛奶
+									</div>
+									<div style="float: right;">
+										60M
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					</ul>
+				</div>
+			</div>
+			<div class="box-block-2">
+				<div class="container-all-menu">
+					<!--番茄-->
+					<div class="box-all-menu-4" style="background-color: rgb(211, 159, 152);">
+						<h3>番茄</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>番茄汁
+									</div>
+									<div style="float: right;">
+										40L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>番茄牛奶
+									</div>
+									<div style="float: right;">
+										40L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>番茄多多
+									</div>
+									<div style="float: right;">
+										40L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>番茄鳳梨
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>番茄蘋果
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>番茄蘋果檸檬
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					<!--手作特調-->
+					<div class="box-all-menu-5">
+						<h3>手作特調</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>冬瓜麥茶
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>冬瓜青茶
+									</div>
+									<div style="float: right;">
+										40L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>冬瓜檸檬
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>冰糖洛神梅
+									</div>
+									<div style="float: right;">
+										45L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>冰樣檸紅
+									</div>
+									<div style="float: right;">
+										35L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>白甘蔗青茶
+									</div>
+									<div style="float: right;">
+										60L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>冰淬檸檬
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>冰淬柳丁
+									</div>
+									<div style="float: right;">
+										55L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>青寧香茶
+									</div>
+									<div style="float: right;">
+										60L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>香柚綠茶
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>養樂多綠
+									</div>
+									<div style="float: right;">
+										50L
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-snowflake"></i>柳丁綠茶
+									</div>
+									<div style="float: right;">
+										60L
+									</div>
+								</elemet>
+							</li>
+							<br>
+						</ul>
+					</div>
+					<br>
+					<!--綠光牧場鮮奶-->
+					<div class="box-all-menu-6">
+						<h3>綠光牧場鮮奶</h3>
+						<ul>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>手炒黑糖鮮奶
+									</div>
+									<div style="float: right;">
+										60M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>嫩仙草凍奶
+									</div>
+									<div style="float: right;">
+										65M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>手感芋圓鮮奶
+									</div>
+									<div style="float: right;">
+										70M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>法芙娜純可可鮮奶
+									</div>
+									<div style="float: right;">
+										60M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>出雲抹茶鮮奶
+									</div>
+									<div style="float: right;">
+										70M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>珍珠鮮奶
+									</div>
+									<div style="float: right;">
+										65M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>芋頭鮮奶
+									</div>
+									<div style="float: right;">
+										65M
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>綠光鮮奶家庭號
+									</div>
+									<div style="float: right;">
+										160
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<elemet class="button-drink">
+									<div style="float: left;" class="drink-name">
+										<i class="fas fa-leaf"></i>綠光鮮奶小資瓶
+									</div>
+									<div style="float: right;">
+										90
+									</div>
+								</elemet>
+							</li>
+							<br>
+							<li data-drinkm-target="#drinkm">
+								<div>
+									<elemet class="button-drink">
+										<div style="float: left;" class="drink-name">
+											<i class="fas fa-leaf"></i>小迷無加糖豆漿
+										</div>
+										<div style="float: right;">
+											89
+										</div>
+									</elemet>
+								</div>
+							</li>
+							<br>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
 </body>
 
 </html>
