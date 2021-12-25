@@ -1,12 +1,9 @@
+/*字體套用
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
 @import url("https://fonts.googleapis.com/css?family=Metal+Mania");
-
-* {
-    box-sizing: border-box;
-    font-family: Raleway;
-    color: #777;
-}
-
+*/
+/*navigation bar row*/
+/*
 .nav ul {
     margin: 0;
 }
@@ -37,51 +34,17 @@
     background-color: rgba(255, 255, 255, .3)
 }
 
-.main-header {
-    background-color: rgba(0, 0, 0, .6);
-    background-image: url("Images/Header Background.jpg");
-    background-blend-mode: multiply;
-    background-size: cover;
-    padding-bottom: 30px;
-}
-
-.band-name {
-    text-align: center;
-    margin: 0;
-    font-size: 4em;
-    font-family: "Booter - Zero Zero";
-    font-weight: normal;
-    color: white;
-}
-
-.band-name-large {
-    font-size: 8em;
-}
 
 .content-section {
     margin: 1em;
 }
 
 .container {
-    max-width: 900px;
-    margin: 0 auto;
+    margin: auto;
     padding: 0 1.5em;
 }
-.section-header {
-    font-family: "Metal Mania";
-    font-weight: normal;
-    color: #333;
-    text-align: center;
-    font-size: 2.5em;
-}
-
-.about-band-image {
-    float: left;
-    height: 200px;
-    width: 200px;
-    margin: 15px;
-    border-radius: 50%;
-}
+    
+*/
 
 .main-footer {
     background-color: #56CCF2;
@@ -106,13 +69,6 @@
 .footer-nav img {
     width: 30px;
     height: 30px;
-}
-
-.btn {
-    text-align: center;
-    vertical-align: middle;
-    padding: .67em .67em;
-    cursor: pointer;
 }
 
 .btn-header {
@@ -152,39 +108,6 @@
 
 .btn-primary:hover {
     background-color: #2D9CDB;
-}
-
-.tour-row {
-    border-bottom: 1px solid black;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-}
-
-.tour-row:last-child {
-    border: none;
-}
-
-.tour-item {
-    display: inline-block;
-    padding-right: .5em;
-}
-
-.tour-date {
-    color: #555;
-    width: 11%;
-    font-weight: bold;
-}
-
-.tour-city {
-    width: 24%;
-}
-
-.tour-arena {
-    width: 42%;
-}
-
-.tour-btn {
-    max-width: 19%;
 }
 
 .shop-item {
@@ -267,7 +190,7 @@
     border-radius: 10px;
 }
 
-.btn-danger {
+.btn-remove {
     color: white;
     background-color: #e46c6c;
     border: none;
@@ -275,7 +198,7 @@
     
 }
 
-.btn-danger:hover {
+.btn-remove:hover {
     background-color: #CC4C4C;
 }
 
@@ -319,7 +242,18 @@
 }
 
 .btn-purchase {
-    display: block;
-    margin: 40px auto 80px auto;
-    font-size: 1.75em;
+    display: flex;
+    margin: auto;
+    font-size: 28px;
+}
+
+.container-cart-title{
+    margin: 30px 0px 12px;
+    background-color: cadetblue;
+    border-radius: 10px;
+    /*font-family: "Metal Mania";*/
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 28px;
 }
