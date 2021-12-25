@@ -55,6 +55,7 @@ function addToCartClicked(event) {
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+    var id = shopItem.dataset.itemId
     addItemToCart(title, price, imageSrc)
     updateCartTotal()
 }
@@ -78,7 +79,7 @@ function addItemToCart(title, price, imageSrc) {
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1">
-            <button class="btn btn-remove" type="button"><i class="fas fa-trash-alt" style="color: white">&nbsp;刪除</i></button>
+            <button class="btn-remove" type="button"><i class="fas fa-trash-alt" style="color: white">&nbsp;刪除</i></button>
         </div>`
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
