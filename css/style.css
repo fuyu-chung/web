@@ -61,7 +61,7 @@
 .drop-shadow {
     -webkit-filter: drop-shadow(0px 0px 12px rgba(66, 66, 66, 0.7));
     filter: drop-shadow(0px 0px 12px rgba(66, 66, 66, 0.7))
-    /*drop-shadow(offset-x offset-y spread-radius color)*/
+        /*drop-shadow(offset-x offset-y spread-radius color)*/
 }
 
 .input-num-width {
@@ -92,10 +92,10 @@ table,
 /*ul li 相關class*/
 ul {
     list-style-type: none;
-    
+
 }
 
-.box-info-shopinfo2 ul{
+.box-info-shopinfo2 ul {
     padding: 0px 0px 0px 2px;
 }
 
@@ -210,4 +210,31 @@ ul {
     height: 80px;
     text-align: center;
     line-height: 80px;
+}
+
+a {
+    color: #c0000030;
+    font-size: 20px;
+
+}
+.heart i.fa-heart{
+    color: rgb(255, 100, 100);
+}
+.heart{
+    animation: heart 0.5s linear;
+}
+@keyframes heart {
+    0%{
+        transform: rotate(0deg) scale(1.7);
+    }
+    40%{
+        transform: rotate(0deg) scale(1);
+    }
+    41%{
+        transform: rotate(360deg) scale(1);
+    }
+    100%{
+        transform: rotate(360deg) scale(1);
+    }
+    
 }
