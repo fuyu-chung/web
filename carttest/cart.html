@@ -38,7 +38,7 @@
         <button onclick="location.href='cart.php'" style="float: right" class="photoBtn">購物車</button>
         <button onclick="location.href='member.php'" style="float: right" class="photoBtn">會員專區</button>
 
-        <!--
+        
         <?php
 session_start();
 if (!isset($_SESSION["account"])) {
@@ -53,80 +53,63 @@ echo "<script>document.getElementById(\"hello_nickname\").innerHTML = \"嗨! $ni
 echo "<button onclick=\"location.href='logout.php'\" style=\"float: right\" class=\"photoBtn\">登出</button></div>";
 }
 ?>
--->
+
     </div>  
 
+    <!--以下是原程式碼放個品項的地方， 給你兩個玩玩看-->
+    
         <section class="container content-section">
             <div class="shop-items">
                 <div class="shop-item">
-                    <span class="shop-item-title">飲料名稱</span>
-                    <img class="shop-item-image" src="../images/StarB.png">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">50</span>
-                        <button class="btn btn-primary shop-item-button" type="button">加入購物車</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">飲料名稱</span>
-                    <img class="shop-item-image" src="../images/StarB.png">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">60</span>
-                        <button class="btn btn-primary shop-item-button" type="button">加入購物車</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">飲料名稱</span>
-                    <img class="shop-item-image" src="../images/StarB.png">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">70</span>
-                        <button class="btn btn-primary shop-item-button" type="button">加入購物車</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">飲料名稱</span>
-                    <img class="shop-item-image" src="../images/StarB.png">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">55</span>
-                        <button class="btn btn-primary shop-item-button" type="button">加入購物車</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="container content-section">
-            <h2 class="section-header">MERCH</h2>
-            <div class="shop-items">
-                <div class="shop-item">
-                    <span class="shop-item-title">飲料名稱</span>
-                    <img class="shop-item-image" src="../images/StarB.png">
-                    <div class="shop-item-details">
-                        <span class="shop-item-price">65元</span>
-                        <button class="btn btn-primary shop-item-button" type="button">加入購物車</button>
-                    </div>
-                </div>
-                <div class="shop-item">
-                    <span class="shop-item-title">飲料名稱</span>
+                    <span class="shop-item-title">飲料名稱1</span>
                     <img class="shop-item-image" src="../images/StarB.png">
                     <div class="shop-item-details">
                         <span class="shop-item-price">50元</span>
-                        <button class="btn btn-primary shop-item-button" type="button">加入購物車</button>
+                        <button class="btn-primary shop-item-button" type="button">加入購物車</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">飲料名稱2</span>
+                    <img class="shop-item-image" src="../images/StarB.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">60元</span>
+                        <button class="btn-primary shop-item-button" type="button">加入購物車</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">飲料名稱3</span>
+                    <img class="shop-item-image" src="../images/StarB.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">70元</span>
+                        <button class="btn-primary shop-item-button" type="button">加入購物車</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">飲料名稱4</span>
+                    <img class="shop-item-image" src="../images/StarB.png">
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">55元</span>
+                        <button class="btn-primary shop-item-button" type="button">加入購物車</button>
                     </div>
                 </div>
             </div>
         </section>
+    
         <section class="container content-section">
-            <h2 class="section-header">CART</h2>
+
+            <h3 class="container-cart-title"><i class="fas fa-shopping-cart" style="color: white;"></i>&nbsp;您的購物車</h3>
             <div class="cart-row">
-                <span class="cart-item cart-header cart-column">飲料名稱</span>
+                <span class="cart-item cart-header cart-column">飲料名稱7</span>
                 <span class="cart-price cart-header cart-column">共?元</span>
                 <span class="cart-quantity cart-header cart-column">QUANTITY</span>
             </div>
-            <div class="cart-items">
+            <div class="cart-items"><!--和js裡的cart-items連接，-->
             </div>
             <div class="cart-total">
                 <strong class="cart-total-title">總金額:</strong>
                 <span class="cart-total-price">0元</span>
             </div>
-            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+            <button class="btn-primary btn-purchase" type="button">送出</button>
         </section>
         
 
