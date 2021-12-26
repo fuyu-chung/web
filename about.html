@@ -7,49 +7,81 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-
-	<link rel="stylesheet" href="css/aboutpagestyle.css" type="text/css">
-	<!--連結到 "css/aboutpagestyle.css" 檔案-->
-
-
-
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<title>About_us X DrinkGo</title>
 </head>
 
 <body>
-	<img class="smaller-image thick-border" style="float:left;" src="images/DrinkGo-01.png">
-	<h1 style="text-align:center" class="blue-text">關於我們</h1>
-
-	<a href="https://fuyu-chung.github.io/web/">
-		<button style="float:left; margin:80px 0px 10px -80px;" class="photoBtn">回到首頁</button></a>
-	<br><br><br><br><br>
-
-	<div style="text-align:center" class="black-text">
-		<h2>組員</h2>
-		<p>胡旻鈞 張甄庭 鍾馥羽 莊緗柔</p>
+	<img alt="Logo" class="smaller-image thick-border" style="float:left;" src="image/DrinkGo.png">
+	<a href="index.php" style="text-decoration: none;">
+		<h1 style="text-align:center;" class="blue-text">DrinkGo!</h1>
+	</a>
+	<h3 style="text-align:right; height:10px;" id="hello_nickname"></h3>
+	<div style="margin-top:80px; margin-bottom:10px; overflow:hidden;">
+		<button onclick="location.href='about.php'" style="float: left" class="photoBtn">關於我們</button>
+		<button onclick="location.href='shopinfo.php'" style="float: left" class="photoBtn">關於店家</button>
+		<button onclick="location.href='cart.php'" style="float: right" class="photoBtn">購物車</button>
+		<button onclick="location.href='member.php'" style="float: right" class="photoBtn">會員專區</button>
+		<?php
+        session_start();
+        if (!isset($_SESSION["account"])) {
+            echo "<button onclick=\"location.href='login.php'\" style=\"float: right\" class=\"photoBtn\">登入 / 註冊</button>";
+        } else {
+            include "resource/Account.php";
+            $account = unserialize($_SESSION["account"]);
+            $nickname = $account->get_nickname();
+            echo "<script>document.getElementById(\"hello_nickname\").innerHTML = \"嗨! $nickname\"</script>";
+            echo "<button onclick=\"location.href='logout.php'\" style=\"float: right\" class=\"photoBtn\">登出</button>";
+        }
+        ?>
 	</div>
 
-	<div style="text-align:center" class="black-text">
-		<h2>簡介</h2>
-		<p>這是一個關於輔大附近飲料店資訊的網站，大家可以透過這個網站查詢學校附近的飲料店，可以先定位自己的所在位置，
-			選擇自己喜歡的或是距離較近的飲料店後，再用不同的分類來選擇，像是口味或是價格，
-			也會有當季的特價或是推薦的飲品，調整甜度冰塊和要加的料後，即可放入購物車</p>
+	<div class="container-abt-1" style="background-color: #cbeaff;">
+		<div class="box-abt-1">
+			<h3>組員</h3>
+		</div>
+		<div class="box-abt-2">
+			<p>胡旻鈞 張甄庭 鍾馥羽 莊緗柔</p>
+		</div>
 	</div>
-
-	<div style="text-align:center" class="black-text">
-		<h2>實作動機與目的</h2>
-		<p>我們希望可以做出當想喝飲料的時候給人方便選擇要喝什麼飲料的網站，並且可以將想要的飲料加入購物車</p>
+	<br>
+	<div class="container-abt-1" style="background-color: #cbeaff;">
+		<div class="box-abt-1">
+			<h3>簡介</h3>
+		</div>
+		<div class="box-abt-2">
+			<p>這是一個關於輔大附近飲料店資訊的網站，大家可以透過這個網站查詢學校附近的飲料店，可以先定位自己的所在位置，
+				選擇自己喜歡的或是距離較近的飲料店後，再用不同的分類來選擇，像是口味或是價格，
+				也會有當季的特價或是推薦的飲品，調整甜度冰塊和要加的料後，即可放入購物車</p>
+		</div>
 	</div>
-
-	<div style="text-align:center" class="black-text">
-		<h2>DrinkGo</h2>
-		<p>名字的由來:</p>
-		<p>因為我們想要做出一個飲料訂購平台，在發想名字的時候取「訂購」兩字，從發音直翻英文”Ding Go”，後來想想覺得既然是跟飲料有關的平台，
-			那就改名成DrinkGo!</p>
-		<p>Logo設計:</p>
-		<p>除了主要的Drink Go字樣，為了讓使用者知道我們這個平台和手搖杯有關係，在後面放了一個插吸管的珍珠奶茶剪影；然後因為這個網站跟Web有關係，
-			我們把其中一個白色氣泡球加上了web的邊框，以表示我們並不是實體店面而是網頁。</p>
-
+	<br>
+	<div class="container-abt-1" style="background-color: #cbeaff;">
+		<div class="box-abt-1">
+			<h3>實作動機與目的</h3>
+		</div>
+		<div class="box-abt-2">
+			<p>我們希望可以做出當想喝飲料的時候給人方便選擇要喝什麼飲料的網站，並且可以將想要的飲料加入購物車</p>
+		</div>
+	</div>
+	<br>
+	<div class="container-abt-1" style="background-color: #cbeaff;">
+		<div class="box-abt-1">
+			<h3>DrinkGo</h3>
+		</div>
+		<div class="box-abt-2">
+			<h4>名字的由來:</h4>
+			<p>因為我們想要做出一個飲料訂購平台，在發想名字的時候取「訂購」兩字，從發音直翻英文”Ding Go”，後來想想覺得既然是跟飲料有關的平台，
+				那就改名成DrinkGo!</p>
+			<h4>Logo設計:</h4>
+			<p>除了主要的Drink Go字樣，為了讓使用者知道我們這個平台和手搖杯有關係，在後面放了一個插吸管的珍珠奶茶剪影；然後因為這個網站跟Web有關係，
+				我們把其中一個白色氣泡球加上了web的邊框，以表示我們並不是實體店面而是網頁。</p>
+		</div>
+		<div style="text-align: center;">
+			<img style="width: 500px;" src="images/DrinkGo-01.png">
+		</div>
 	</div>
 
 
