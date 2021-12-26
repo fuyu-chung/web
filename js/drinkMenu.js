@@ -35,3 +35,14 @@ function closeDrinkm(drinkm) {
   drinkm.classList.remove('active')
   overlay.classList.remove('active')
 }
+
+
+/*首頁*/
+function openSort(sortName) {
+  var i;
+  var x = document.getElementsByClassName("sort");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById(sortName).style.display = "block";
+}
