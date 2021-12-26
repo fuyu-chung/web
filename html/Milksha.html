@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<link rel="stylesheet" href="../css/style.css" type="text/css">
 	<link rel="stylesheet" href="../css/jsRelate.css">
@@ -57,7 +58,19 @@
 					<img class="smaller-info-image thin-white-border" style="float:left;" src="../images/Milksha.jpg">
 				</div>
 				<div class="box-info-shopinfo2">
-					<h4 class="text-info-shopinfo-top">迷客夏&nbsp;新北輔大店</h4>
+					<h4 class="text-info-shopinfo-top">迷客夏&nbsp;新北輔大店&nbsp;
+						<a href="#" class="like">
+							<i class="fas fa-heart" aria-hidden="true"></i>
+						</a>
+						<script>
+							$(document).ready(function () {
+								$(".like").click(function () {
+									$(this).toggleClass("heart");
+								});
+							});
+						</script>
+					</h4>
+
 					<ul>
 						<li class="text-info-shopinfo-down">
 							<i class="fas fa-phone"></i>
