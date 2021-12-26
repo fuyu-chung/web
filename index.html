@@ -50,15 +50,19 @@
         </div>
     </div>
 
+    <div>
+        <img style="border-radius: 10px;" src="images/店家資訊圖.jpg">
+    </div>
 
-    <div class="w3-bar w3-black">
-        <button class="w3-bar-item w3-button" onclick="openSort('Distance')">依距離排序</button>
-        <button class="w3-bar-item w3-button" onclick="openSort('Area')">依區域排序</button>
-        <button class="w3-bar-item w3-button" onclick="openSort('Category')">依類別排序</button>
+
+    <div>
+        <button onclick="openSort('Distance')" style="background: rgb(209, 225, 255);"><i class="fas fa-route"></i>依距離排序</button>
+        <button onclick="openSort('Area')" style="background: rgb(209, 225, 255);"><i class="fas fa-filter"></i>依區域排序</button>
+        <button onclick="openSort('Category')" style="background: rgb(209, 225, 255);"><i class="fas fa-sitemap"></i>依類別排序</button>
     </div>
 
     <div id="Distance" class="sort">
-        <h2>依距離排序</h2>
+        <h2 style="text-align: center;"><i class="fas fa-route"></i>依距離排序</h2>
         <table border="0" width="100%" cellspacing="5" cellpadding="5"
             style="border-radius: 10px; background-color: rgb(250, 240, 187);">
             <tr>
@@ -98,7 +102,7 @@
     </div>
 
     <div id="Area" class="sort" style="display:none">
-        <h2>依區域排序</h2>
+        <h2 style="text-align: center;"><i class="fas fa-filter"></i>依區域排序</h2>
         <div class="container-sort-row">
             <div class="box-sort" style="background-color: rgb(250, 187, 187); border-radius: 10px; margin: 0px 5px 0px 0px;">
                 <div class="box-sort-head">
@@ -171,7 +175,7 @@
     </div>
 
     <div id="Category" class="sort" style="display:none">
-        <h2>依類別排序</h2>
+        <h2 style="text-align: center;"><i class="fas fa-sitemap"></i>依類別排序</h2>
         <div class="container-sort-row">
             <div class="box-sort" style="background-color: rgb(250, 240, 187); border-radius: 10px; margin: 0px 5px 0px 0px;">
                 <div class="box-sort-head">
